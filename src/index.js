@@ -125,7 +125,7 @@ function update(time, delta) {
     this.bulletCooldown -= delta
   }
   
-  cameras.main.startFollow(this.player)
+  //camera.main.startFollow(this.player)
 
   if (this.shootJoyStick.force) {
     // Rotate according to joystick
