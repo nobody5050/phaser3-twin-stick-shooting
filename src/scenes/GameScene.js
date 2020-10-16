@@ -30,7 +30,7 @@ class GameScene extends Phaser.Scene {
 		}).on('update', () => {}, this)
 		
 		// Create shooting joystick
-		this.shootJoyStick = this.plugins.get('rexvirtualjoystickplugin').add(
+		this.shootJoyStick = this.plugins.get('rexvirtualjoystickplugin').add(this.scene, {
 			x: this.cameras.main.width - 100,
 			y: this.cameras.main.height - 125,
 			radius: 20,
