@@ -5,7 +5,11 @@ class GameScene extends Phaser.Scene {
 	}
 
 	preload() {
-		
+		this.load.image('player', playerImg)
+		this.load.image('joystick', joystickImg)
+		this.load.image('bullet', bulletImg)
+
+		this.load.plugin('rexvirtualjoystickplugin', rexvirtualjoystickplugin, true)	
 	}
 
 	create() {
@@ -97,5 +101,4 @@ class GameScene extends Phaser.Scene {
 		}
 	}
 }
-
 export default GameScene;
