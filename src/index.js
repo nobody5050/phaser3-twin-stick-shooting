@@ -117,6 +117,7 @@ function create() {
 
   this.bullets = this.physics.add.group({ classType: Bullet, runChildUpdate: true })
   this.bulletCooldown = 0
+  cursors = this.input.keyboard.createCursorKeys();
 }
 
 function update(time, delta) {
