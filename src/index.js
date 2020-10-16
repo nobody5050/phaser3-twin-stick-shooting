@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-import GameScene from './scenes/gameScene.js';
+import GameScene from './scenes/GameScene.js';
 
 // Our game scene
 var gameScene = new GameScene();
