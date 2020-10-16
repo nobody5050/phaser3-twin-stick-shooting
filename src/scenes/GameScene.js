@@ -4,10 +4,6 @@ class GameScene extends Phaser.Scene {
 		super({key : 'gameScene'});
 	}
 
-	init() {
-		
-	};
-
 	preload() {
 		
 	}
@@ -17,8 +13,7 @@ class GameScene extends Phaser.Scene {
 
 	}
 
-	update() {
-
+	update()
 	}
 
 
