@@ -38,7 +38,7 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
 
 const config = {
   type: Phaser.AUTO,
-  parent: 'phaser-example',
+  parent: 'sur.oi',
   backgroundColor: '#56ac68',
   width: 1920,
   height: 1080,
