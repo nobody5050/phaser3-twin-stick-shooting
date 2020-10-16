@@ -1,3 +1,4 @@
+import phaser from 'phaser';
 class GameScene extends Phaser.Scene {
 
 	constructor() {
