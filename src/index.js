@@ -6,10 +6,23 @@ var gameScene = new GameScene();
 
 
 //* Game scene */
-var config = {
+const config = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  parent: 'phaser-example',
+  backgroundColor: '#56ac68',
+  width: '100%',
+  height: '100%',
+  physics: {
+    default: 'arcade',
+  },
+  scene: {
+    preload: preload,
+    create: create,
+    update: update,
+  },
+  input: {
+    activePointers: 3, // 2 is default for mouse + pointer, +1 is required for dual touch
+  },
 };
 var game = new Phaser.Game(config);
 
