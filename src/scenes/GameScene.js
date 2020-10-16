@@ -46,11 +46,6 @@ class GameScene extends Phaser.Scene {
 			this.player.setVelocityY(0)
 		}
 	}
-	
-	end() {
-		
-	}
-
 }
 
 export default GameScene;
