@@ -40,8 +40,8 @@ const config = {
   type: Phaser.AUTO,
   parent: 'sur.oi',
   backgroundColor: '#56ac68',
-  width: 1920,
-  height: 1080,
+  width: '100%',
+  height: '100%',
   physics: {
     default: 'arcade',
   },
@@ -125,8 +125,6 @@ function update(time, delta) {
     // Reduce bullet cooldown
     this.bulletCooldown -= delta
   }
-  
-  //camera.main.startFollow(this.player)
 
   if (this.shootJoyStick.force) {
     // Rotate according to joystick
