@@ -38,7 +38,7 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
 
 const config = {
   type: Phaser.AUTO,
-  parent: 'sur.oi',
+  parent: 'phaser-example',
   backgroundColor: '#56ac68',
   width: '100%',
   height: '100%',
@@ -61,7 +61,6 @@ function preload() {
   this.load.image('player', playerImg)
   this.load.image('joystick', joystickImg)
   this.load.image('bullet', bulletImg)
-  this.load.image('263A22A3-2677-4D4B-8DE0-4530FE02815A', backroundImg)
 
   this.load.plugin('rexvirtualjoystickplugin', rexvirtualjoystickplugin, true)
 }
