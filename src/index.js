@@ -15,11 +15,6 @@ const config = {
   physics: {
     default: 'arcade',
   },
-  scene: {
-    preload: preload,
-    create: create,
-    update: update,
-  },
   input: {
     activePointers: 3, // 2 is default for mouse + pointer, +1 is required for dual touch
   },
