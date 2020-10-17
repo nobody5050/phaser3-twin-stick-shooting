@@ -94,7 +94,7 @@ class GameScene extends Phaser.Scene {
 			}
 		})
 
-		this.bullets = this.physics.add.group({ classType: Bullet, runChildUpdate: true })
+		this.bullets = this.physics.add.group({ classType: bullet, runChildUpdate: true })
 		this.bulletCooldown = 0
 	}
 	
