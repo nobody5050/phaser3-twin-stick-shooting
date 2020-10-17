@@ -7,7 +7,7 @@ import rexvirtualjoystickplugin from '../plugins/rexvirtualjoystickplugin.min.js
 class GameScene extends Phaser.Scene {
 
 	constructor() {
-		super({key : 'gameScene'});
+		super({key : 'GameScene'});
 	}
 	
 	init() {
