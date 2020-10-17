@@ -1,4 +1,4 @@
-import phaser from 'phaser';
+import Phaser from 'phaser';
 import playerImg from '../assets/player.png'
 import joystickImg from '../assets/joystick.png'
 import bulletImg from '../assets/bullet.png'
