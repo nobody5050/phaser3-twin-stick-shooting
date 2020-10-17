@@ -66,8 +66,7 @@ class GameScene extends Phaser.Scene {
 		this.bullets = this.physics.add.group({ classType: Bullet, runChildUpdate: true })
 		this.bulletCooldown = 0
 	}
-}
-
+	
 	update(time, delta) {
 		if (this.bulletCooldown > 0) {
 			// Reduce bullet cooldown
