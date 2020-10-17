@@ -1,8 +1,8 @@
 import phaser from 'phaser';
-import playerImg from './assets/player.png'
-import joystickImg from './assets/joystick.png'
-import bulletImg from './assets/bullet.png'
-import rexvirtualjoystickplugin from './plugins/rexvirtualjoystickplugin.min.js'
+import playerImg from '../assets/player.png'
+import joystickImg from '../assets/joystick.png'
+import bulletImg from '../assets/bullet.png'
+import rexvirtualjoystickplugin from '../plugins/rexvirtualjoystickplugin.min.js'
 
 class GameScene extends Phaser.Scene {
 
