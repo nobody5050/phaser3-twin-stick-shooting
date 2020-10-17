@@ -33,14 +33,6 @@ class GameScene extends Phaser.Scene {
 
 				this.born = 0
 			}
-
-			update(time, delta) {
-				this.born += delta
-
-				if (this.born > 1500) {
-					this.destroy()
-				}
-			}
 		}
 	}
 
@@ -107,6 +99,12 @@ class GameScene extends Phaser.Scene {
 	}
 	
 	update(time, delta) {
+		
+		this.born += delta
+		if (this.born > 1500) {
+			this.destroy()
+		}
+		
 		if (this.bulletCooldown > 0) {
 			// Reduce bullet cooldown
 			this.bulletCooldown -= delta
