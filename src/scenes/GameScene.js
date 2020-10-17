@@ -37,7 +37,7 @@ class GameScene extends Phaser.Scene {
 			forceMin: 0,
 			base: this.add.circle(0, 0, 60, 0x888888, 0.5).setDepth(100).setAlpha(0.25),
 			thumb: this.add.image(0, 0, 'joystick').setDisplaySize(80, 80).setDepth(100).setAlpha(0.5),
-	}).on('update', () => {}, this)
+		}).on('update', () => {}, this)
 
 		// Move joysticks dynamically based on pointer-down
 		this.input.on('pointerdown', (pointer) => {
