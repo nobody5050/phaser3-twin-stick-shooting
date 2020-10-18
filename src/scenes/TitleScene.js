@@ -18,11 +18,11 @@ class TitleScene extends Phaser.Scene {
 		var text = this.add.text(100,100, 'Welcome to my game!');
 		text.setInteractive({ useHandCursor: true });
 		text.on('pointerdown', () => this.clickButton());
-		
-		//handle button click
-		clickButton() {
-			this.scene.switch('gameScene');
-		}
+	}
+	
+	//handle button click
+	clickButton() {
+		this.scene.switch('gameScene');
 	}
 }
 
