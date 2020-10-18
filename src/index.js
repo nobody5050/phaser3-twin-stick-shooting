@@ -1,9 +1,10 @@
 import Phaser from 'phaser'
 import GameScene from './scenes/GameScene.js';
+import TitleScene from './scenes/TitleScene.js';
 
 // Our game scene
 var gameScene = new GameScene();
-
+var titleScene = new TitleScene();
 
 //* Game scene */
 const config = {
