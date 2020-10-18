@@ -23,7 +23,8 @@ const config = {
 var game = new Phaser.Game(config);
 
 // load scenes
+game.scene.add('titleScene', titleScene);
 game.scene.add("game", gameScene);
 
 // start title
-game.scene.start('gameScene');
+game.scene.start('titleScene');
