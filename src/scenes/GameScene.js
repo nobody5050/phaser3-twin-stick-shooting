@@ -48,10 +48,6 @@ class GameScene extends Phaser.Scene {
 		this.player.setCollideWorldBounds(true)
 		this.player.setOrigin(0.5, 0.72) // Set origin for bullet fire start
 		
-		//camera stuff
-		//this.cameras.main.setBounds(200, 200, 2000, 2000);
-		//this.cameras.main.startFollow(this.player);
-		
 		// Create movement joystick
 		this.movementJoyStick = this.plugins.get('rexvirtualjoystickplugin').add(this.scene, {
 			x: 100,
@@ -101,8 +97,6 @@ class GameScene extends Phaser.Scene {
 	}
 	
 	update(time, delta) {
-		
-		this.cameras.main.centerOn(this.player.x, this.player.y);
 		
 		this.born += delta
 		if (this.born > 1500) {
