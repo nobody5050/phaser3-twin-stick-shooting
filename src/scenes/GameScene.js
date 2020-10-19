@@ -49,7 +49,7 @@ class GameScene extends Phaser.Scene {
 		this.player.setOrigin(0.5, 0.72) // Set origin for bullet fire start
 		
 		//camera stuff
-		//this.cameras.main.setBounds(0, 0, 2000, 2000);
+		//this.cameras.main.setBounds(200, 200, 2000, 2000);
 		this.cameras.main.startFollow(this.player);
 		
 		// Create movement joystick
