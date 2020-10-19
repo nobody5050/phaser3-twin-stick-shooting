@@ -50,7 +50,7 @@ class GameScene extends Phaser.Scene {
 		
 		//camera stuff
 		this.cameras.main.setBounds(0, 0, 10000, 10000);
-		this.cameras.main.startFollow(this.ninja);
+		this.cameras.main.startFollow(this.player);
 		
 		// Create movement joystick
 		this.movementJoyStick = this.plugins.get('rexvirtualjoystickplugin').add(this.scene, {
