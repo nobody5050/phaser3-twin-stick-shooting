@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import GameScene from './Gamescene';
 
 //handle button click
-clickButton() {
+clickButton(); {
 	this.scene.switch('gameScene');
 }
 
