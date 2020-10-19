@@ -17,7 +17,7 @@ class TitleScene extends Phaser.Scene {
 
 		var text = this.add.text(100,100, 'enter test lobby');
 		text.setInteractive({ useHandCursor: true });
-		text.on('pointerdown', () => this.scene.switch('gameScene'););
+		text.on('pointerdown', () => this.scene.switch('gameScene'));
 	}
 }
 
