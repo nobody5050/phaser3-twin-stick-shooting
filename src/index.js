@@ -11,8 +11,8 @@ const config = {
   type: Phaser.AUTO,
   parent: 'phaser-example',
   backgroundColor: '#56ac68',
-  width: 2160,
-  height: 1620,
+  width: '100%',
+  height: '100%',
   physics: {
     default: 'arcade',
   },
