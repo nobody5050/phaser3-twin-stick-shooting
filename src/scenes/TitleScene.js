@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import GameScene from './Gamescene';
+import GameScene from './GameScene.js';
 
 //handle button click
 clickButton(); {
