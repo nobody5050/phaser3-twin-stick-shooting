@@ -18,8 +18,8 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
 		this.setRotation(shooter.rotation)
 
 		// Offset the bullet to start a bit right of the shooter
-		//this.x = shooter.x + (50 * Math.cos(this.rotation))
-		//this.y = shooter.y + (50 * Math.sin(this.rotation))
+		this.x = shooter.x + (50 * Math.cos(this.rotation))
+		this.y = shooter.y + (50 * Math.sin(this.rotation))
 
 		this.setVelocityX(BULLET_SPEED * Math.cos(Math.PI * this.angle / 180))
 		this.setVelocityY(BULLET_SPEED * Math.sin(Math.PI * this.angle / 180))
@@ -46,7 +46,7 @@ class GameScene extends Phaser.Scene {
 		// Create player
 		this.player = this.physics.add.sprite(200, 200, 'player')
 		this.player.setCollideWorldBounds(true)
-		this.player.setOrigin(0.5, 0.72) // Set origin for bullet fire start
+		this.player.setOrigin(0.5, 0.5) // Set origin for bullet fire start
 		this.player.setScale(.4)
 		
 		// Create movement joystick
