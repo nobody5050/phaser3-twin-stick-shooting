@@ -86,7 +86,7 @@ class GameScene extends Phaser.Scene {
 			if (!this.movementJoyStick.force) {
 				this.movementJoyStick.base.setAlpha(0.25)
 				this.movementJoyStick.thumb.setAlpha(0.5)
-				this.shootJoyStick.base.setPosition(100, window.innerHeight - 125)
+				this.movementJoyStick.base.setPosition(100, window.innerHeight - 125)
 			}
 			if (!this.shootJoyStick.force) {
 				this.shootJoyStick.base.setAlpha(0.25)
@@ -137,12 +137,7 @@ class GameScene extends Phaser.Scene {
 			this.player.setVelocityX(0)
 			this.player.setVelocityY(0)
 		}
-		if (!this.movementJoyStick.force) {
-			this.shootJoyStick.base.setPosition(100, window.innerHeight - 125)
-		}
-		if (!this.shootJoyStick.force) {
-			this.shootJoyStick.base.setPosition(window.innerWidth - 100, window.innerHeight - 125)
-		}
+
 	}
 }
 export default GameScene;
