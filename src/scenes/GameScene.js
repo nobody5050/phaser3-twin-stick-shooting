@@ -137,6 +137,12 @@ class GameScene extends Phaser.Scene {
 			this.player.setVelocityX(0)
 			this.player.setVelocityY(0)
 		}
+		if (!this.movementJoyStick.force) {
+			this.shootJoyStick.base.setPosition(100, window.innerHeight - 125)
+		}
+		if (!this.shootJoyStick.force) {
+			this.shootJoyStick.base.setPosition(window.innerWidth - 100, window.innerHeight - 125)
+		}
 	}
 }
 export default GameScene;
