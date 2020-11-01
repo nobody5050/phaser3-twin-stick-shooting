@@ -51,8 +51,8 @@ class GameScene extends Phaser.Scene {
 		
 		// Create movement joystick
 		this.movementJoyStick = this.plugins.get('rexvirtualjoystickplugin').add(this.scene, {
-			x: 100,
-			y: window.innerHeight - 125,
+			x: window.innerWidth * 0.1,
+			y: window.innerHeight * 0.9,
 			radius: 40,
 			forceMin: 0,
 			base: this.add.circle(0, 0, 60, 0x888888).setDepth(100).setAlpha(0.25),
@@ -61,8 +61,8 @@ class GameScene extends Phaser.Scene {
 		
 		// Create shooting joystick
 		this.shootJoyStick = this.plugins.get('rexvirtualjoystickplugin').add(this.scene, {
-			x: window.innerWidth - 100,
-			y: window.innerHeight - 125,
+			x: window.innerWidth * 0.9,
+			y: window.innerHeight * 0.9,
 			radius: 20,
 			forceMin: 0,
 			base: this.add.circle(0, 0, 60, 0x888888, 0.5).setDepth(100).setAlpha(0.25),
@@ -86,14 +86,14 @@ class GameScene extends Phaser.Scene {
 			if (!this.movementJoyStick.force) {
 				this.movementJoyStick.base.setAlpha(0.25)
 				this.movementJoyStick.thumb.setAlpha(0.5)
-				this.movementJoyStick.base.setPosition(100, window.innerHeight - 125)
-				this.movementJoyStick.thumb.setPosition(100, window.innerHeight - 125)
+				this.movementJoyStick.base.setPosition(window.innerWidth * 0.1, window.innerHeight * 0.9)
+				this.movementJoyStick.thumb.setPosition(window.innerWidth * 0.1, window.innerHeight * 0.9)
 			}
 			if (!this.shootJoyStick.force) {
 				this.shootJoyStick.base.setAlpha(0.25)
 				this.shootJoyStick.thumb.setAlpha(0.5)
-				this.shootJoyStick.base.setPosition(window.innerWidth - 100, window.innerHeight - 125)
-				this.shootJoyStick.thumb.setPosition(window.innerWidth - 100, window.innerHeight - 125)
+				this.shootJoyStick.base.setPosition(window.innerWidth * 0.9, window.innerHeight * 0.9)
+				this.shootJoyStick.thumb.setPosition(window.innerWidth * 0.9, window.innerHeight * 0.9)
 			}
 		})
 
