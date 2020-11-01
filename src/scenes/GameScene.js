@@ -97,6 +97,39 @@ class GameScene extends Phaser.Scene {
 			}
 		})
 
+		this.input.on('keydown', (event) => {
+			let speed = MAX_PLAYER_SPEED
+			if (event.key == 'a') {
+				this.player.setVelocityX(speed * 1 + this.player.velocity)
+			}
+			if (event.key == 'd') {
+				this.player.setVelocityX(speed * -1  + this.player.velocity)
+			}
+			if (event.key == 's') {
+				this.player.setVelocityX(speed * 1 + this.player.velocity)
+			}
+			if (event.key == 'd') {
+				this.player.setVelocityX(speed * -1  + this.player.velocity)
+			}
+
+		})
+		this.input.on('keyup', (event) => {
+			let speed = MAX_PLAYER_SPEED
+			if (event.key == 'a') {
+				this.player.setVelocityX(speed * -1 + this.player.velocity)
+			}
+			if (event.key == 'd') {
+				this.player.setVelocityX(speed * 1  + this.player.velocity)
+			}
+			if (event.key == 's') {
+				this.player.setVelocityX(speed * -1 + this.player.velocity)
+			}
+			if (event.key == 'd') {
+				this.player.setVelocityX(speed * 1  + this.player.velocity)
+			}
+
+		})
+
 		this.bullets = this.physics.add.group({ classType: Bullet, runChildUpdate: true })
 		this.bulletCooldown = 0
 	}
