@@ -87,11 +87,13 @@ class GameScene extends Phaser.Scene {
 				this.movementJoyStick.base.setAlpha(0.25)
 				this.movementJoyStick.thumb.setAlpha(0.5)
 				this.movementJoyStick.base.setPosition(100, window.innerHeight - 125)
+				this.movementJoyStick.thumb.setPosition(100, window.innerHeight - 125)
 			}
 			if (!this.shootJoyStick.force) {
 				this.shootJoyStick.base.setAlpha(0.25)
 				this.shootJoyStick.thumb.setAlpha(0.5)
 				this.shootJoyStick.base.setPosition(window.innerWidth - 100, window.innerHeight - 125)
+				this.shootJoyStick.thumb.setPosition(window.innerWidth - 100, window.innerHeight - 125)
 			}
 		})
 
