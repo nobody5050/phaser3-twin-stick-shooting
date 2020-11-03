@@ -262,28 +262,23 @@ class GameScene extends Phaser.Scene {
 				this.player.setVelocityX(speed * 1)
 			}
 		}
-		if (keysDown > 0) {
-			if (keyListUp[0] == true) {
-				keyListUp[0] == false
-				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityY(0)
-			}
-			if (keyListUp[1] == true) {
-				keyListUp[1] == false
-				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityX(0)
-			}
-			if (keyListUp[2] == true) {
-				keyListUp[2] == false
-				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityY(0)
-			}
-			if (keyListUp[3] == true) {
-				keyListUp[3] == false
-				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityX(0)
-			}
+		if (keyListUp[0] == true) {
+			keyListUp[0] == false
+			this.player.setVelocityY(0)
 		}
+		if (keyListUp[1] == true) {
+			keyListUp[1] == false
+			this.player.setVelocityX(0)
+		}
+		if (keyListUp[2] == true) {
+			keyListUp[2] == false
+			this.player.setVelocityY(0)
+		}
+		if (keyListUp[3] == true) {
+			keyListUp[3] == false
+			this.player.setVelocityX(0)
+		}
+
 
 	}
 
