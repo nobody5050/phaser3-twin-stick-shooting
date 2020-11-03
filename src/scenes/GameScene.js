@@ -6,7 +6,7 @@ import rexvirtualjoystickplugin from '../plugins/rexvirtualjoystickplugin.min.js
 
 const MAX_PLAYER_SPEED = 200
 const BULLET_SPEED = 800
-
+var keysDown = 0;
 
 
 
@@ -48,7 +48,7 @@ class GameScene extends Phaser.Scene {
 	}
 
 	create() {
-		var keysDown = 0;
+
 		var w = this.input.keyboard.addKey('W');
 		var a = this.input.keyboard.addKey('A');
 		var s = this.input.keyboard.addKey('S');
