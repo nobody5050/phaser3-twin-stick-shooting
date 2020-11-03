@@ -149,15 +149,44 @@ class GameScene extends Phaser.Scene {
 		// })
 		w.on('down', function(event) {
 			keysDown += 1;
-			console.log("down")
+			console.log("wdown")
 			keyListDown[0] = true;
 		})
 		w.on('up', function(event) {
 			keysDown -= 1;
-			console.log("up")
+			console.log("wup")
 			keyListUp[0] = true;
 		})
-
+		a.on('down', function(event) {
+			keysDown += 1;
+			console.log("adown")
+			keyListDown[1] = true;
+		})
+		a.on('up', function(event) {
+			keysDown -= 1;
+			console.log("aup")
+			keyListUp[1] = true;
+		})
+		s.on('down', function(event) {
+			keysDown += 1;
+			console.log("sdown")
+			keyListDown[2] = true;
+		})
+		s.on('up', function(event) {
+			keysDown -= 1;
+			console.log("sup")
+			keyListUp[2] = true;
+		})
+		d.on('down', function(event) {
+			keysDown += 1;
+			console.log("ddown")
+			keyListDown[3] = true;
+		})
+		d.on('up', function(event) {
+			keysDown -= 1;
+			console.log("dup")
+			keyListUp[3] = true;
+		})
 
 
 		this.bullets = this.physics.add.group({ classType: Bullet, runChildUpdate: true })
@@ -208,16 +237,46 @@ class GameScene extends Phaser.Scene {
 
 		if (keysDown > 0) {
 			if (keyListDown[0] == true) {
-				let speed = MAX_PLAYER_SPEED
 				keyListDown[0] == false
+				let speed = MAX_PLAYER_SPEED
 				this.player.setVelocityY(speed * -1)
+			}
+			if (keyListDown[1] == true) {
+				keyListDown[1] == false
+				let speed = MAX_PLAYER_SPEED
+				this.player.setVelocityX(speed * 1)
+			}
+			if (keyListDown[2] == true) {
+				keyListDown[2] == false
+				let speed = MAX_PLAYER_SPEED
+				this.player.setVelocityY(speed * 1)
+			}
+			if (keyListDown[3] == true) {
+				keyListDown[3] == false
+				let speed = MAX_PLAYER_SPEED
+				this.player.setVelocityX(speed * -1)
 			}
 		}
 		if (keysDown > 0) {
 			if (keyListUp[0] == true) {
-				let speed = MAX_PLAYER_SPEED
 				keyListUp[0] == false
+				let speed = MAX_PLAYER_SPEED
+				this.player.setVelocityY(this.player.velocity + speed)
+			}
+			if (keyListUp[1] == true) {
+				keyListUp[1] == false
+				let speed = MAX_PLAYER_SPEED
+				this.player.setVelocityX(this.player.velocity - speed)
+			}
+			if (keyListUp[2] == true) {
+				keyListUp[2] == false
+				let speed = MAX_PLAYER_SPEED
 				this.player.setVelocityY(this.player.velocity - speed)
+			}
+			if (keyListUp[3] == true) {
+				keyListUp[3] == false
+				let speed = MAX_PLAYER_SPEED
+				this.player.setVelocityX(this.player.velocity + speed)
 			}
 		}
 
