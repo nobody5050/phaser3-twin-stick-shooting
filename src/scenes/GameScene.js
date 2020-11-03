@@ -49,10 +49,10 @@ class GameScene extends Phaser.Scene {
 
 	create() {
 		var keysDown = 0;
-		var w = scene.input.keyboard.addKey('W');
-		var a = scene.input.keyboard.addKey('A');
-		var s = scene.input.keyboard.addKey('S');
-		var d = scene.input.keyboard.addKey('D');
+		var w = this.input.keyboard.addKey('W');
+		var a = this.input.keyboard.addKey('A');
+		var s = this.input.keyboard.addKey('S');
+		var d = this.input.keyboard.addKey('D');
 
 		// Create player
 		this.player = this.physics.add.sprite(200, 200, 'player')
