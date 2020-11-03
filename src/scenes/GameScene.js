@@ -6,7 +6,9 @@ import rexvirtualjoystickplugin from '../plugins/rexvirtualjoystickplugin.min.js
 
 const MAX_PLAYER_SPEED = 200
 const BULLET_SPEED = 800
-var keysDown = 0;
+
+
+
 
 class Bullet extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y) {
@@ -31,6 +33,8 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
 
 class GameScene extends Phaser.Scene {
 
+
+
 	constructor() {
 		super({key : 'gameScene'});
 	}
@@ -44,6 +48,12 @@ class GameScene extends Phaser.Scene {
 	}
 
 	create() {
+		var keysDown = 0;
+		var w = scene.input.keyboard.addKey('W');
+		var a = scene.input.keyboard.addKey('A');
+		var s = scene.input.keyboard.addKey('S');
+		var d = scene.input.keyboard.addKey('D');
+
 		// Create player
 		this.player = this.physics.add.sprite(200, 200, 'player')
 		this.player.setCollideWorldBounds(true)
@@ -98,49 +108,58 @@ class GameScene extends Phaser.Scene {
 			}
 		})
 
-		this.input.on('keydown', (event) => {
-			keysDown++
-			let speed = MAX_PLAYER_SPEED
-			if (event.key == 'a') {
-				this.player.setVelocityX(speed * 1 + this.player.velocity)
-			}
-			if (event.key == 'd') {
-				this.player.setVelocityX(speed * -1  + this.player.velocity)
-			}
-			if (event.key == 's') {
-				this.player.setVelocityX(speed * 1 + this.player.velocity)
-			}
-			if (event.key == 'd') {
-				this.player.setVelocityX(speed * -1  + this.player.velocity)
-			}
-
+		// this.input.on('keydown', (event) => {
+		// 	keysDown++
+		// 	let speed = MAX_PLAYER_SPEED
+		// 	if (event.key == 'a') {
+		// 		this.player.setVelocityX(speed * 1 + this.player.velocity)
+		// 	}
+		// 	if (event.key == 'd') {
+		// 		this.player.setVelocityX(speed * -1  + this.player.velocity)
+		// 	}
+		// 	if (event.key == 's') {
+		// 		this.player.setVelocityY(speed * 1 + this.player.velocity)
+		// 	}
+		// 	if (event.key == 'w') {
+		// 		this.player.setVelocityY(speed * -1  + this.player.velocity)
+		// 	}
+		//
+		// })
+		// this.input.on('keyup', (event) => {
+		// 	keysDown--
+		// 	if (keysDown < 0) {
+		// 		console.log("Key count error.")
+		// 		keysDown = 0
+		// 	}
+		// 	let speed = MAX_PLAYER_SPEED
+		// 	if (event.key == 'a') {
+		// 		this.player.setVelocityX(speed * -1 + this.player.velocity)
+		// 	}
+		// 	if (event.key == 'd') {
+		// 		this.player.setVelocityX(speed * 1  + this.player.velocity)
+		// 	}
+		// 	if (event.key == 's') {
+		// 		this.player.setVelocityY(speed * -1 + this.player.velocity)
+		// 	}
+		// 	if (event.key == 'w') {
+		// 		this.player.setVelocityY(speed * 1  + this.player.velocity)
+		// 	}
+		//
+		// })
+		w.on('down', function(event) {
+			keysDown += 1;
+			console.log("down")
+			this.player.setVelocityY(speed * -1  + this.player.velocity)
 		})
-		this.input.on('keyup', (event) => {
-			keysDown--
-			if (keysDown < 0) {
-				console.log("Key count error.")
-				keysDown = 0
-			}
-			let speed = MAX_PLAYER_SPEED
-			if (event.key == 'a') {
-				this.player.setVelocityX(speed * -1 + this.player.velocity)
-			}
-			if (event.key == 'd') {
-				this.player.setVelocityX(speed * 1  + this.player.velocity)
-			}
-			if (event.key == 's') {
-				this.player.setVelocityX(speed * -1 + this.player.velocity)
-			}
-			if (event.key == 'd') {
-				this.player.setVelocityX(speed * 1  + this.player.velocity)
-			}
-
+		w.on('up', function(event) {
+			keysDown += 1;
+			console.log("up")
+			this.player.setVelocityY(speed * 1  + this.player.velocity)
 		})
-
 		this.bullets = this.physics.add.group({ classType: Bullet, runChildUpdate: true })
 		this.bulletCooldown = 0
 	}
-	
+
 	update(time, delta) {
 		
 		this.born += delta
@@ -183,6 +202,9 @@ class GameScene extends Phaser.Scene {
 		}
 		console.log(keysDown)
 
+
 	}
+
+
 }
 export default GameScene;
