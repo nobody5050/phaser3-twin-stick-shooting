@@ -149,12 +149,12 @@ class GameScene extends Phaser.Scene {
 		w.on('down', function(event) {
 			keysDown += 1;
 			console.log("down")
-			this.player.setVelocityY(speed * -1  + this.player.velocity)
+			player.setVelocityY(speed * -1  + this.player.velocity)
 		})
 		w.on('up', function(event) {
 			keysDown += 1;
 			console.log("up")
-			this.player.setVelocityY(speed * 1  + this.player.velocity)
+			player.setVelocityY(speed * 1  + this.player.velocity)
 		})
 		this.bullets = this.physics.add.group({ classType: Bullet, runChildUpdate: true })
 		this.bulletCooldown = 0
