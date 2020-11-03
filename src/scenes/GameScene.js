@@ -217,7 +217,7 @@ class GameScene extends Phaser.Scene {
 			if (keyListUp[0] == true) {
 				let speed = MAX_PLAYER_SPEED
 				keyListUp[0] == false
-				this.player.setVelocityY(speed * 1)
+				this.player.setVelocityY(this.player.velocity - speed)
 			}
 		}
 
