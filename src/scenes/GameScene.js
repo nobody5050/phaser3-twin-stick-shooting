@@ -236,32 +236,32 @@ class GameScene extends Phaser.Scene {
 		// console.log(keysDown)
 		if (keysDown < 0) {
 			console.log("keys up extra error")
-			keysDown == 0;
+			keysDown == 0
 		}
 
 
-		if (keysDown > 0) {
-			if (keyListDown[0] == true) {
-				keyListDown[0] == false
-				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityY(speed * -1)
-			}
-			if (keyListDown[1] == true) {
-				keyListDown[1] == false
-				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityX(speed * -1)
-			}
-			if (keyListDown[2] == true) {
-				keyListDown[2] == false
-				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityY(speed * 1)
-			}
-			if (keyListDown[3] == true) {
-				keyListDown[3] == false
-				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityX(speed * 1)
-			}
+
+		if (keyListDown[0] == true) {
+			keyListDown[0] == false
+			let speed = MAX_PLAYER_SPEED
+			this.player.setVelocityY(speed * -1)
 		}
+		if (keyListDown[1] == true) {
+			keyListDown[1] == false
+			let speed = MAX_PLAYER_SPEED
+			this.player.setVelocityX(speed * -1)
+		}
+		if (keyListDown[2] == true) {
+			keyListDown[2] == false
+			let speed = MAX_PLAYER_SPEED
+			this.player.setVelocityY(speed * 1)
+		}
+		if (keyListDown[3] == true) {
+			keyListDown[3] == false
+			let speed = MAX_PLAYER_SPEED
+			this.player.setVelocityX(speed * 1)
+		}
+
 		if (keyListUp[0] == true) {
 			keyListUp[0] == false
 			this.player.setVelocityY(0)
