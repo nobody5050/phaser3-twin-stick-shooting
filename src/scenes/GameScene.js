@@ -236,7 +236,7 @@ class GameScene extends Phaser.Scene {
 		// console.log(keysDown)
 		if (keysDown < 0) {
 			console.log("keys up extra error")
-			keysDown == 0
+			keysDown = 0
 		}
 
 
