@@ -244,7 +244,7 @@ class GameScene extends Phaser.Scene {
 			if (keyListDown[1] == true) {
 				keyListDown[1] == false
 				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityX(speed * 1)
+				this.player.setVelocityX(speed * -1)
 			}
 			if (keyListDown[2] == true) {
 				keyListDown[2] == false
@@ -254,7 +254,7 @@ class GameScene extends Phaser.Scene {
 			if (keyListDown[3] == true) {
 				keyListDown[3] == false
 				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityX(speed * -1)
+				this.player.setVelocityX(speed * 1)
 			}
 		}
 		if (keysDown > 0) {
@@ -266,7 +266,7 @@ class GameScene extends Phaser.Scene {
 			if (keyListUp[1] == true) {
 				keyListUp[1] == false
 				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityX(this.player.velocity - speed)
+				this.player.setVelocityX(this.player.velocity + speed)
 			}
 			if (keyListUp[2] == true) {
 				keyListUp[2] == false
@@ -276,7 +276,7 @@ class GameScene extends Phaser.Scene {
 			if (keyListUp[3] == true) {
 				keyListUp[3] == false
 				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityX(this.player.velocity + speed)
+				this.player.setVelocityX(this.player.velocity - speed)
 			}
 		}
 
