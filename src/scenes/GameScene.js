@@ -7,7 +7,8 @@ import rexvirtualjoystickplugin from '../plugins/rexvirtualjoystickplugin.min.js
 const MAX_PLAYER_SPEED = 200
 const BULLET_SPEED = 800
 var keysDown = 0;
-
+var keyListDown = [false,false,false,false] //w,a,s,d
+var keyListUp = [false,false,false,false] //w,a,s,d
 
 
 class Bullet extends Phaser.Physics.Arcade.Sprite {
@@ -149,13 +150,16 @@ class GameScene extends Phaser.Scene {
 		w.on('down', function(event) {
 			keysDown += 1;
 			console.log("down")
-			player.setVelocityY(speed * -1  + this.player.velocity)
+			keyListDown[0] = true;
 		})
 		w.on('up', function(event) {
 			keysDown += 1;
 			console.log("up")
-			player.setVelocityY(speed * 1  + this.player.velocity)
+			keyListUp[0] = true;
 		})
+
+
+
 		this.bullets = this.physics.add.group({ classType: Bullet, runChildUpdate: true })
 		this.bulletCooldown = 0
 	}
@@ -200,8 +204,20 @@ class GameScene extends Phaser.Scene {
 				this.player.setVelocityY(0)
 			}
 		}
-		console.log(keysDown)
+		// console.log(keysDown)
 
+		if (keysDown > 0) {
+			if (keyListDown[0] == true) {
+				keyListDown[0] == false
+				this.player.setVelocityY(speed * -1  + this.player.velocity)
+			}
+		}
+		if (keysDown > 0) {
+			if (keyListUp[0] == true) {
+				keyListUp[0] == false
+				this.player.setVelocityY(speed * 1  + this.player.velocity)
+			}
+		}
 
 	}
 
