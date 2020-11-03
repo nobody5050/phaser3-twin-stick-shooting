@@ -153,7 +153,7 @@ class GameScene extends Phaser.Scene {
 			keyListDown[0] = true;
 		})
 		w.on('up', function(event) {
-			keysDown += 1;
+			keysDown -= 1;
 			console.log("up")
 			keyListUp[0] = true;
 		})
