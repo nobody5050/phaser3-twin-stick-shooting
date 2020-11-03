@@ -228,12 +228,17 @@ class GameScene extends Phaser.Scene {
 			this.player.setVelocityY(speed * Math.sin(Math.PI * this.movementJoyStick.angle / 180))
 		} else {
 			// Stop moving
-			if (keysDown == 0) {
+			if (keysDown <= 0) {
 				this.player.setVelocityX(0)
 				this.player.setVelocityY(0)
 			}
 		}
 		// console.log(keysDown)
+		if (keysDown < 0) {
+			console.log("keys up extra error")
+			keysDown == 0;
+		}
+
 
 		if (keysDown > 0) {
 			if (keyListDown[0] == true) {
@@ -261,22 +266,22 @@ class GameScene extends Phaser.Scene {
 			if (keyListUp[0] == true) {
 				keyListUp[0] == false
 				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityY(this.player.velocity + speed)
+				this.player.setVelocityY(0)
 			}
 			if (keyListUp[1] == true) {
 				keyListUp[1] == false
 				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityX(this.player.velocity + speed)
+				this.player.setVelocityX(0)
 			}
 			if (keyListUp[2] == true) {
 				keyListUp[2] == false
 				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityY(this.player.velocity - speed)
+				this.player.setVelocityY(0)
 			}
 			if (keyListUp[3] == true) {
 				keyListUp[3] == false
 				let speed = MAX_PLAYER_SPEED
-				this.player.setVelocityX(this.player.velocity - speed)
+				this.player.setVelocityX(0)
 			}
 		}
 
