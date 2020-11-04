@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import GameScene from './GameScene.js';
-import discord from '../assets/socialMediaIcons/discordJoinLogo.png';
+import discord from '../assets/socialMediaIcons/discordJoinLogo.svg';
 
 class TitleScene extends Phaser.Scene {
 
@@ -10,7 +10,7 @@ class TitleScene extends Phaser.Scene {
 
 	preload() {
 		// this.load.image('background', 'images/background.jpg');
-		this.load.image('discordJoinImage', discord)
+		this.load.image('discordJoinImage', discord, { scale: 0.2 }))
 	}
 
 	create() {
