@@ -9,6 +9,7 @@ class TitleScene extends Phaser.Scene {
 
 	preload() {
 		this.load.image('background', 'images/background.jpg');
+		this.load.image('discordJoinImage', 'src/assets/socialMediaIcons/discordJoinLogo.png');
 	}
 
 	create() {
@@ -20,8 +21,8 @@ class TitleScene extends Phaser.Scene {
 		text.on('pointerdown', () => this.scene.switch('gameScene'));
 
 
-		this.textures.addImage("discordJoinImage", 'src/assets/socialMediaIcons/discordJoinLogo.png')
-		this.discordIcon = this.add.image(window.innerWidth*0.99, window.innerHeight*0.99, 'discordJoinImage')
+		// this.textures.addImage("discordJoinImage", 'src/assets/socialMediaIcons/discordJoinLogo.png')
+		var discordIcon = this.add.image(window.innerWidth*0.99, window.innerHeight*0.99, 'discordJoinImage')
 
 	}
 }
