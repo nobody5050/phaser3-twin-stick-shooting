@@ -109,44 +109,6 @@ class GameScene extends Phaser.Scene {
 			}
 		})
 
-		// this.input.on('keydown', (event) => {
-		// 	keysDown++
-		// 	let speed = MAX_PLAYER_SPEED
-		// 	if (event.key == 'a') {
-		// 		this.player.setVelocityX(speed * 1 + this.player.velocity)
-		// 	}
-		// 	if (event.key == 'd') {
-		// 		this.player.setVelocityX(speed * -1  + this.player.velocity)
-		// 	}
-		// 	if (event.key == 's') {
-		// 		this.player.setVelocityY(speed * 1 + this.player.velocity)
-		// 	}
-		// 	if (event.key == 'w') {
-		// 		this.player.setVelocityY(speed * -1  + this.player.velocity)
-		// 	}
-		//
-		// })
-		// this.input.on('keyup', (event) => {
-		// 	keysDown--
-		// 	if (keysDown < 0) {
-		// 		console.log("Key count error.")
-		// 		keysDown = 0
-		// 	}
-		// 	let speed = MAX_PLAYER_SPEED
-		// 	if (event.key == 'a') {
-		// 		this.player.setVelocityX(speed * -1 + this.player.velocity)
-		// 	}
-		// 	if (event.key == 'd') {
-		// 		this.player.setVelocityX(speed * 1  + this.player.velocity)
-		// 	}
-		// 	if (event.key == 's') {
-		// 		this.player.setVelocityY(speed * -1 + this.player.velocity)
-		// 	}
-		// 	if (event.key == 'w') {
-		// 		this.player.setVelocityY(speed * 1  + this.player.velocity)
-		// 	}
-		//
-		// })
 		w.on('down', function(event) {
 			keysDown += 1;
 			console.log("wdown")
@@ -265,6 +227,7 @@ class GameScene extends Phaser.Scene {
 		if (keyListUp[0] == true) {
 			keyListUp[0] = false
 			this.player.setVelocityY(0)
+			
 		}
 		if (keyListUp[1] == true) {
 			keyListUp[1] = false
