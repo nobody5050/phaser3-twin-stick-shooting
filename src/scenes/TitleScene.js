@@ -22,7 +22,7 @@ class TitleScene extends Phaser.Scene {
 
 
 		// this.textures.addImage("discordJoinImage", 'src/assets/socialMediaIcons/discordJoinLogo.png')
-		var discordIcon = this.add.image(window.innerWidth*0.95, window.innerHeight*0.95, 'discordJoinImage')
+		var discordIcon = this.add.image(window.innerWidth*0.05, window.innerHeight*0.95, 'discordJoinImage')
 
 	}
 }
