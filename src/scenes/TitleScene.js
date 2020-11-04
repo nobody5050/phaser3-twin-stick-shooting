@@ -10,7 +10,7 @@ class TitleScene extends Phaser.Scene {
 
 	preload() {
 		// this.load.image('background', 'images/background.jpg');
-		this.load.image('discordJoinImage', discord, { scale: 0.05 })
+		this.load.image('discordJoinImage', discord, { scale: 0.005 })
 	}
 
 	create() {
