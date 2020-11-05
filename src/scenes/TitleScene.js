@@ -3,7 +3,7 @@ import GameScene from './GameScene.js';
 import discord from '../assets/socialMediaIcons/discordJoinLogo.svg';
 
 import Colyseus from "colyseus.js";
-let colyseusClient = new Colyseus.Client("ws://localhost:2567");
+let colyseusClient = new Colyseus.Client("ws://134.209.68.198:2567");
 
 class TitleScene extends Phaser.Scene {
 
