@@ -22,7 +22,18 @@ class TitleScene extends Phaser.Scene {
 
 		var text = this.add.text(100,100, 'enter test lobby');
 		text.setInteractive({ useHandCursor: true });
-		text.on('pointerdown', () => this.scene.switch('gameScene'));
+		text.on('pointerdown', async () => {
+
+			try {
+				const room = await colyseusClient.joinOrCreate("battle", {/* options */});
+				console.log("joined successfully", room);
+
+			} catch (e) {
+				console.error("join error", e);
+			}
+			this.scene.switch('gameScene')
+
+		});
 
 
 		// this.textures.addImage("discordJoinImage", 'src/assets/socialMediaIcons/discordJoinLogo.png')
