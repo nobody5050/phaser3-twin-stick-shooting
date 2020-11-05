@@ -2,7 +2,8 @@ import Phaser from 'phaser'
 import GameScene from './scenes/GameScene.js';
 import TitleScene from './scenes/TitleScene.js';
 
-// Our game scene
+// Setup variables
+var client = new Colyseus.Client('ws://localhost:2567');
 var gameScene = new GameScene();
 var titleScene = new TitleScene();
 
