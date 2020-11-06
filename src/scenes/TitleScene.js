@@ -33,7 +33,7 @@ class TitleScene extends Phaser.Scene {
 		connect.setInteractive({useHandCursor: true});
 		text.on('pointerdown', async () => {
 			try {
-				const room = await colyseusClient.joinOrCreate("battle", {/* options */});
+				const room = await client.joinOrCreate("battle", {/* options */});
 				console.log("joined successfully", room);
 				serverJoin = this.add.text(window.innerWidth*0.05,window.innerHeight*0.05, 'joined server sucessfully');
 
