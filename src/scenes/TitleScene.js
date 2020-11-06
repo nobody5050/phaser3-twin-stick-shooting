@@ -31,7 +31,7 @@ class TitleScene extends Phaser.Scene {
 
 		var connect = this.add.text(200,200, 'conncect');
 		connect.setInteractive({useHandCursor: true});
-		text.on('pointerdown') {
+		connect.on('pointerdown', () => {
 			try {
 				const room = client.joinOrCreate("battle", {/* options */});
 				console.log("joined successfully", room);
@@ -41,7 +41,7 @@ class TitleScene extends Phaser.Scene {
 				console.error("join error", e);
 				serverJoin = this.add.text(window.innerWidth*0.05,window.innerHeight*0.05, 'join error');
 			}
-		}
+		})
 
 		// this.textures.addImage("discordJoinImage", 'src/assets/socialMediaIcons/discordJoinLogo.png')
 		var discordIcon = this.add.image(window.innerWidth*0.05, window.innerHeight*0.95, 'discordJoinImage')
