@@ -2,7 +2,7 @@ import Phaser from 'phaser'
 
 
 var connect = phaser.add.text(200,200, 'conncect');
-let colyseusClient = new Colyseus.Client("ws://134.209.68.198:2567");
+let client = new Colyseus.Client("ws://134.209.68.198:2567");
 connect.setInteractive({useHandCursor: true});
 function clientJoin() { 
 	connect.on('pointerdown', () => {
