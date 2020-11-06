@@ -19,22 +19,29 @@ class TitleScene extends Phaser.Scene {
 	create() {
 		// var bg = this.add.sprite(0,0,'background');
 		// bg.setOrigin(0,0);
+		var serverJoin;
 
 		var text = this.add.text(100,100, 'enter test lobby');
 		text.setInteractive({ useHandCursor: true });
-		text.on('pointerdown', async () => {
-
-			try {
-				const room = await colyseusClient.joinOrCreate("battle", {/* options */});
-				console.log("joined successfully", room);
-
-			} catch (e) {
-				console.error("join error", e);
-			}
+		text.on('pointerdown', () => {
+			
 			this.scene.switch('gameScene')
 
 		});
 
+		var connect = this.add.text(200,200, 'conncect');
+		connect.setInteractive({useHandCursor: true});
+		text.on('pointerdown', async () => {
+			try {
+				const room = await colyseusClient.joinOrCreate("battle", {/* options */});
+				console.log("joined successfully", room);
+				serverJoin = this.add.text(window.innerWidth*0.05,window.innerHeight*0.05, 'joined server sucessfully');
+
+			} catch (e) {
+				console.error("join error", e);
+				serverJoin = this.add.text(window.innerWidth*0.05,window.innerHeight*0.05, 'join error');
+			}
+		})
 
 		// this.textures.addImage("discordJoinImage", 'src/assets/socialMediaIcons/discordJoinLogo.png')
 		var discordIcon = this.add.image(window.innerWidth*0.05, window.innerHeight*0.95, 'discordJoinImage')
