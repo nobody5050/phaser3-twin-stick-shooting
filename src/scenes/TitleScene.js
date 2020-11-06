@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
 import GameScene from './GameScene.js';
 import discord from '../assets/socialMediaIcons/discordJoinLogo.svg';
-import client from '../index.js'
+//remove for now
+//import client from '../index.js'
 import {connect, client, clientJoin  } from "../components/client.js";
 
 //import Colyseus from "colyseus.js";
