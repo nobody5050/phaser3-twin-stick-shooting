@@ -1,5 +1,4 @@
-import Phaser from 'phaser'
-
+import Phaser from 'phaser';
 
 var connect = phaser.add.text(200,200, 'conncect');
 let client = new Colyseus.Client("ws://134.209.68.198:2567");
