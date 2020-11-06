@@ -1,4 +1,7 @@
-//todo
+import phaser from something idk
+
+
+var connect = this.add.text(200,200, 'conncect');
 let colyseusClient = new Colyseus.Client("ws://134.209.68.198:2567");
 connect.setInteractive({useHandCursor: true});
 		connect.on('pointerdown', () => {
