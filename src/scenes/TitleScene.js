@@ -34,7 +34,7 @@ class TitleScene extends Phaser.Scene {
 
 		var connect = this.add.text(200,200, 'conncect');
 		connect.setInteractive({useHandCursor: true});
-		serverJoin = clientJoin(serverJoin)
+		serverJoin = clientJoin(serverJoin, this, connect)
 
 		// this.textures.addImage("discordJoinImage", 'src/assets/socialMediaIcons/discordJoinLogo.png')
 		var discordIcon = this.add.image(window.innerWidth*0.05, window.innerHeight*0.95, 'discordJoinImage')
