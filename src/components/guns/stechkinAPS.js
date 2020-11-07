@@ -1,0 +1,3 @@
+const stats = {
+    // stats here
+}
