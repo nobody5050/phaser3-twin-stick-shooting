@@ -3,7 +3,7 @@ import GameScene from './GameScene.js';
 import discord from '../assets/socialMediaIcons/discordJoinLogo.svg';
 //remove for now
 //import client from '../index.js'
-import {client, clientJoin  } from "../components/client.js";
+import {client, clientJoin , room } from "../components/client.js";
 
 //import Colyseus from "colyseus.js";
 //let colyseusClient = new Colyseus.Client("ws://134.209.68.198:2567");

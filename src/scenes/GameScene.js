@@ -3,12 +3,12 @@ import playerImg from '../assets/player.png'
 import joystickImg from '../assets/joystick.png'
 import bulletImg from '../assets/bullet.png'
 import rexvirtualjoystickplugin from '../plugins/rexvirtualjoystickplugin.min.js'
+import {client, clientJoin ,room  } from "../components/client.js";
 
 const MAX_PLAYER_SPEED = 200
 const BULLET_SPEED = 800
-var keysDown = 0;
-var keyListDown = [false,false,false,false] //w,a,s,d
-var keyListUp = [false,false,false,false] //w,a,s,d
+var keysDown = 0
+var keyListDown = [false,false,false,false]
 
 
 class Bullet extends Phaser.Physics.Arcade.Sprite {
@@ -119,6 +119,7 @@ class GameScene extends Phaser.Scene {
 			console.log("wup")
 			keyListUp[0] = true;
 		})
+
 		a.on('down', function(event) {
 			keysDown += 1;
 			console.log("adown")
@@ -129,6 +130,7 @@ class GameScene extends Phaser.Scene {
 			console.log("aup")
 			keyListUp[1] = true;
 		})
+
 		s.on('down', function(event) {
 			keysDown += 1;
 			console.log("sdown")
@@ -139,6 +141,7 @@ class GameScene extends Phaser.Scene {
 			console.log("sup")
 			keyListUp[2] = true;
 		})
+
 		d.on('down', function(event) {
 			keysDown += 1;
 			console.log("ddown")
@@ -202,49 +205,102 @@ class GameScene extends Phaser.Scene {
 		}
 
 
-
-		if (keyListDown[0] == true) {
-			keyListDown[0] = false
-			let speed = MAX_PLAYER_SPEED
-			this.player.setVelocityY(speed * -1)
-		}
-		if (keyListDown[1] == true) {
-			keyListDown[1] = false
-			let speed = MAX_PLAYER_SPEED
-			this.player.setVelocityX(speed * -1)
-		}
-		if (keyListDown[2] == true) {
-			keyListDown[2] = false
-			let speed = MAX_PLAYER_SPEED
-			this.player.setVelocityY(speed * 1)
-		}
-		if (keyListDown[3] == true) {
-			keyListDown[3] = false
-			let speed = MAX_PLAYER_SPEED
-			this.player.setVelocityX(speed * 1)
-		}
-
-		if (keyListUp[0] == true) {
-			keyListUp[0] = false
-			this.player.setVelocityY(0)
-			
-		}
-		if (keyListUp[1] == true) {
-			keyListUp[1] = false
-			this.player.setVelocityX(0)
-		}
-		if (keyListUp[2] == true) {
-			keyListUp[2] = false
-			this.player.setVelocityY(0)
-		}
-		if (keyListUp[3] == true) {
-			keyListUp[3] = false
-			this.player.setVelocityX(0)
-		}
-
+/*
+		// if (keyListDown[0] == true) {
+		// 	keyListDown[0] = false
+		// 	let speed = MAX_PLAYER_SPEED
+		// 	this.player.setVelocityY(speed * -1)
+		// }
+		// if (keyListDown[1] == true) {
+		// 	keyListDown[1] = false
+		// 	let speed = MAX_PLAYER_SPEED
+		// 	this.player.setVelocityX(speed * -1)
+		// }
+		// if (keyListDown[2] == true) {
+		// 	keyListDown[2] = false
+		// 	let speed = MAX_PLAYER_SPEED
+		// 	this.player.setVelocityY(speed * 1)
+		// }
+		// if (keyListDown[3] == true) {
+		// 	keyListDown[3] = false
+		// 	let speed = MAX_PLAYER_SPEED
+		// 	this.player.setVelocityX(speed * 1)
+		// }
+		//
+		// if (keyListUp[0] == true) {
+		// 	keyListUp[0] = false
+		// 	this.player.setVelocityY(0)
+		//
+		// }
+		// if (keyListUp[1] == true) {
+		// 	keyListUp[1] = false
+		// 	this.player.setVelocityX(0)
+		// }
+		// if (keyListUp[2] == true) {
+		// 	keyListUp[2] = false
+		// 	this.player.setVelocityY(0)
+		// }
+		// if (keyListUp[3] == true) {
+		// 	keyListUp[3] = false
+		// 	this.player.setVelocityX(0)
+		// }
+*/
 
 	}
 
 
 }
+
+/*
+0 is right
+90 is up
+180 is left
+270 is down
+
+ */
+function sendMoveRequests(type) {
+	let speed, angle;
+	if (type == "keyboard") {
+		speed = 1;
+
+		if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == true) {
+			speed = 0;
+			angle = 0;
+		} else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == true) {
+			angle = 0;
+			speed = 0;
+		} else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == false) {
+			angle = 0;
+			speed = 0;
+		} else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == true) {
+			angle = 270;
+		} else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == true) {
+			angle = 90;
+		} else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == true) {
+			angle = 0;
+		} else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == false) {
+			angle = 180;
+		} else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == false) {
+			angle = 270;
+		} else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == false) {
+			angle = 90;
+		} else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == true) {
+			angle = 0;
+		} else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == false) {
+		 	angle = 180;
+		} else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == false) {
+			angle = 135;
+		} else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == false) {
+			angle = 225;
+		} else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == true) {
+			angle = 305;
+		} else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == true) {
+			angle = 45;
+		}
+
+	}
+
+	room.send("move", {speed: speed, angle: angle})
+}
+
 export default GameScene;
