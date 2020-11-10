@@ -6,27 +6,41 @@ let room;
 
 function clientJoin(serverJoin, instance, connect, name, posX = window.innerWidth*0.05, posY = window.innerHeight*0.05) {
 	if (connect === "onStart") {
-		try {
-			room = client.joinOrCreate(name, {/* options */});
+		client.joinOrCreate(name, {/* options */}).then(room => {
 			console.log("joined successfully", room);
 			serverJoin = instance.add.text(posX, posY, 'joined server sucessfully');
-
-		} catch (e) {
+		}).catch(e => {
 			console.error("join error", e);
 			serverJoin = instance.add.text(posX, posY, 'join error');
-		}
+		});
+		// try {
+		// 	room = client.joinOrCreate(name, {/* options */});
+		// 	console.log("joined successfully", room);
+		// 	serverJoin = instance.add.text(posX, posY, 'joined server sucessfully');
+		//
+		// } catch (e) {
+		// 	console.error("join error", e);
+		// 	serverJoin = instance.add.text(posX, posY, 'join error');
+		// }
 		return serverJoin
 	} else {
 		connect.on('pointerdown', () => {
-			try {
-				room = client.joinOrCreate(name, {/* options */});
+			client.joinOrCreate(name, {/* options */}).then(room => {
 				console.log("joined successfully", room);
 				serverJoin = instance.add.text(posX, posY, 'joined server sucessfully');
-
-			} catch (e) {
+			}).catch(e => {
 				console.error("join error", e);
 				serverJoin = instance.add.text(posX, posY, 'join error');
-			}
+			});
+			// try {
+			// 	room = client.joinOrCreate(name, {/* options */});
+			// 	console.log("joined successfully", room);
+			// 	serverJoin = instance.add.text(posX, posY, 'joined server sucessfully');
+			//
+			// } catch (e) {
+			// 	console.error("join error", e);
+			// 	serverJoin = instance.add.text(posX, posY, 'join error');
+			// }
 			return serverJoin
 		})
 	}
