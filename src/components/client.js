@@ -4,18 +4,31 @@ import Phaser from 'phaser';
 let client = new Colyseus.Client("ws://134.209.68.198:2567");
 let room;
 
-function clientJoin(serverJoin, instance, connect) {
-	connect.on('pointerdown', () => {
+function clientJoin(serverJoin, instance, connect, name, posX = window.innerWidth*0.05, posY = window.innerHeight*0.05) {
+	if (connect === "onStart") {
 		try {
-			room = client.joinOrCreate("battle", {/* options */});
+			room = client.joinOrCreate(name, {/* options */});
 			console.log("joined successfully", room);
-			serverJoin = instance.add.text(window.innerWidth*0.05,window.innerHeight*0.05, 'joined server sucessfully');
+			serverJoin = instance.add.text(posX, posY, 'joined server sucessfully');
 
 		} catch (e) {
 			console.error("join error", e);
-			serverJoin = instance.add.text(window.innerWidth*0.05,window.innerHeight*0.05, 'join error');
+			serverJoin = instance.add.text(posX, posY, 'join error');
 		}
 		return serverJoin
-	})
+	} else {
+		connect.on('pointerdown', () => {
+			try {
+				room = client.joinOrCreate(name, {/* options */});
+				console.log("joined successfully", room);
+				serverJoin = instance.add.text(posX, posY, 'joined server sucessfully');
+
+			} catch (e) {
+				console.error("join error", e);
+				serverJoin = instance.add.text(posX, posY, 'join error');
+			}
+			return serverJoin
+		})
+	}
 }
 export { client, clientJoin, room };
