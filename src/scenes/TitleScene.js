@@ -30,15 +30,14 @@ class TitleScene extends Phaser.Scene {
 
 		var text = this.add.text(100,100, 'enter test lobby');
 		text.setInteractive({ useHandCursor: true });
+		serverJoin = clientJoin(serverJoin, this, text, "battle")
 		text.on('pointerdown', () => {
-			
 			this.scene.switch('gameScene')
-
 		});
 
-		var connect = this.add.text(200,200, 'conncect');
-		connect.setInteractive({useHandCursor: true});
-		serverJoin = clientJoin(serverJoin, this, connect, "battle")
+		// var connect = this.add.text(200,200, 'conncect');
+		// connect.setInteractive({useHandCursor: true});
+		// serverJoin = clientJoin(serverJoin, this, connect, "battle")
 
 		// this.textures.addImage("discordJoinImage", 'src/assets/socialMediaIcons/discordJoinLogo.png')
 		var discordIcon = this.add.image(window.innerWidth*0.05, window.innerHeight*0.95, 'discordJoinImage')
