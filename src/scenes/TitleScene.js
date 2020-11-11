@@ -40,7 +40,10 @@ class TitleScene extends Phaser.Scene {
 		// serverJoin = clientJoin(serverJoin, this, connect, "battle")
 
 		// this.textures.addImage("discordJoinImage", 'src/assets/socialMediaIcons/discordJoinLogo.png')
-		var discordIcon = this.add.image(window.innerWidth*0.05, window.innerHeight*0.95, 'discordJoinImage')
+		var discordIcon = this.add.image(window.innerWidth*0.05, window.innerHeight*0.95, 'discordJoinImage').setDisplaySize(20, 30)
+
+		var dokmiBoxOutline = this.add.rectangle(window.innerWidth*0.25, 300, window.innerWidth*0.5, 200, "white")
+		var dokmiBoxOutline = this.add.rectangle(window.innerWidth*0.25+5, 305, window.innerWidth*0.5-10, 190, "#56ac68")
 
 	}
 }
