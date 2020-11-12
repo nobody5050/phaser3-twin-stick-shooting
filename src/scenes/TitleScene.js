@@ -55,7 +55,7 @@ class TitleScene extends Phaser.Scene {
 			console.log("page not tall enough")
 			valid = false
 		}
-		if (window.innerWidth < 1000) {
+		if (window.innerWidth < 700) {
 			console.log("page not wide enough")
 			valid = false
 		}
