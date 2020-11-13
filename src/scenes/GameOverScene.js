@@ -24,4 +24,4 @@ class GameOverScene extends Phaser.Scene {
 
 }
 
-export default TitleScene;
+export default GameOverScene;

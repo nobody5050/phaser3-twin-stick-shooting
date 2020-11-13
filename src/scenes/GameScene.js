@@ -159,7 +159,8 @@ class GameScene extends Phaser.Scene {
 	}
 
 	update(time, delta) {
-		
+
+		//why is this in this class
 		this.born += delta
 		if (this.born > 1500) {
 			this.destroy()
@@ -301,6 +302,11 @@ function sendMoveRequests(type) {
 	}
 
 	room.send("move", {speed: speed, angle: angle})
+}
+
+function sendFireRequests(angle) {
+
+	room.send("fire", {angle:angle})
 }
 
 export default GameScene;

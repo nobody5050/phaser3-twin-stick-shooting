@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 import GameScene from './GameScene.js';
+import GameOverScene from './GameOverScene.js';
 import discord from '../assets/socialMediaIcons/discordJoinLogo.svg';
+import patreon from '../assets/socialMediaIcons/patreonJoinLogo.svg';
 //remove for now
 //import client from '../index.js'
 import {client, clientJoin , room } from "../components/client.js";
@@ -16,7 +18,9 @@ class TitleScene extends Phaser.Scene {
 
 	preload() {
 		// this.load.image('background', 'images/background.jpg');
-		this.load.image('discordJoinImage', discord, { scale: 0.005 })
+		this.load.svg('discordJoinImage', discord, { scale: 0.1 })
+		this.load.svg('patreonJoinImage', patreon, { scale: 0.1 })
+
 	}
 
 	create() {
@@ -60,10 +64,20 @@ class TitleScene extends Phaser.Scene {
 			valid = false
 		}
 		if (valid) {
-			var discordIcon = this.add.image(window.innerWidth * 0.05, window.innerHeight * 0.95, 'discordJoinImage').setDisplaySize(20, 30)
+			var discordIcon = this.add.image(window.innerWidth * 0.05, window.innerHeight * 0.95, 'discordJoinImage')//.setDisplaySize(20, 30)
+			discordIcon.setInteractive({useHandCursor:true})
+			discordIcon.on('pointerdown', () => {
+				//send them to the discord invite link
+			})
+			var patreonIcon = this.add.image(window.innerWidth * 0.05 + 40, window.innerHeight * 0.95, 'patreonJoinImage')//.setDisplaySize(20, 30)
+			patreonIcon.setInteractive({useHandCursor:true})
+			patreonIcon.on('pointerdown', () => {
+				//send them to the patreon page
+			})
+
 
 			var dokmiBoxOutline = this.add.rectangle(window.innerWidth * 0.25, 300, window.innerWidth * 0.5, 200, "white")
-			var dokmiBoxOutline = this.add.rectangle(window.innerWidth * 0.25 + 5, 295, window.innerWidth * 0.5 - 10, 190, "#56ac68")
+			var dokmiBoxFill = this.add.rectangle(window.innerWidth * 0.25 + 5, 295, window.innerWidth * 0.5 - 10, 190, "#56ac68")
 		} else {
 			var invalid = this.add.text(window.innerWidth*0.1, window.innerHeight*0.5, "screen size not valid")
 		}
