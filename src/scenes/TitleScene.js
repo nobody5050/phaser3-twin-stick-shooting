@@ -6,7 +6,7 @@ import patreon from '../assets/socialMediaIcons/patreonJoinLogo.svg';
 //remove for now
 //import client from '../index.js'
 import {client, clientJoin , room } from "../components/client.js";
-
+weaponStats
 //import Colyseus from "colyseus.js";
 //let colyseusClient = new Colyseus.Client("ws://134.209.68.198:2567");
 
@@ -19,7 +19,7 @@ class TitleScene extends Phaser.Scene {
 	preload() {
 		// this.load.image('background', 'images/background.jpg');
 		this.load.svg('discordJoinImage', discord, { scale: 0.1 })
-		this.load.svg('patreonJoinImage', patreon, { scale: 0.1 })
+		this.load.svg('patreonJoinImage', patreon, { scale: 0.5 })
 
 	}
 
@@ -64,12 +64,12 @@ class TitleScene extends Phaser.Scene {
 			valid = false
 		}
 		if (valid) {
-			var discordIcon = this.add.image(window.innerWidth * 0.05, window.innerHeight * 0.95, 'discordJoinImage')//.setDisplaySize(20, 30)
+			var discordIcon = this.add.image(10, window.innerHeight - 10, 'discordJoinImage')//.setDisplaySize(20, 30)
 			discordIcon.setInteractive({useHandCursor:true})
 			discordIcon.on('pointerdown', () => {
 				//send them to the discord invite link
 			})
-			var patreonIcon = this.add.image(window.innerWidth * 0.05 + 40, window.innerHeight * 0.95, 'patreonJoinImage')//.setDisplaySize(20, 30)
+			var patreonIcon = this.add.image(window.innerWidth - 40, window.innerHeight - 10, 'patreonJoinImage')//.setDisplaySize(20, 30)
 			patreonIcon.setInteractive({useHandCursor:true})
 			patreonIcon.on('pointerdown', () => {
 				//send them to the patreon page
