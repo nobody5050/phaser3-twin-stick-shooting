@@ -1,3 +1,3 @@
 const stats = {
-  // stats here
+  "BULLET_SPEED":800
 }
