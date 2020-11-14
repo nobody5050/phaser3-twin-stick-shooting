@@ -6,7 +6,7 @@ import patreon from '../assets/socialMediaIcons/patreonJoinLogo.svg';
 //remove for now
 //import client from '../index.js'
 import {client, clientJoin , room } from "../components/client.js";
-weaponStats
+
 //import Colyseus from "colyseus.js";
 //let colyseusClient = new Colyseus.Client("ws://134.209.68.198:2567");
 
