@@ -64,12 +64,12 @@ class TitleScene extends Phaser.Scene {
 			valid = false
 		}
 		if (valid) {
-			var discordIcon = this.add.image(10, window.innerHeight - 10, 'discordJoinImage')//.setDisplaySize(20, 30)
+			var discordIcon = this.add.image(30, window.innerHeight - 30, 'discordJoinImage')//.setDisplaySize(20, 30)
 			discordIcon.setInteractive({useHandCursor:true})
 			discordIcon.on('pointerdown', () => {
 				//send them to the discord invite link
 			})
-			var patreonIcon = this.add.image(window.innerWidth - 40, window.innerHeight - 10, 'patreonJoinImage')//.setDisplaySize(20, 30)
+			var patreonIcon = this.add.image(70, window.innerHeight - 30, 'patreonJoinImage')//.setDisplaySize(20, 30)
 			patreonIcon.setInteractive({useHandCursor:true})
 			patreonIcon.on('pointerdown', () => {
 				//send them to the patreon page
