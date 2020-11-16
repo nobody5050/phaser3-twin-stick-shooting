@@ -113,6 +113,7 @@ class GameScene extends Phaser.Scene {
 			keysDown += 1;
 			console.log("wdown")
 			keyListDown[0] = true;
+			sendMoveRequests("keyboard")
 		})
 		w.on('up', function(event) {
 			keysDown -= 1;
@@ -305,7 +306,7 @@ function sendMoveRequests(type) {
 }
 
 function sendFireRequests(angle) {
-
+	//maybe add logic later
 	room.send("fire", {angle:angle})
 }
 
