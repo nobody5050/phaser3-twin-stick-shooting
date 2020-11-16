@@ -77,7 +77,7 @@ class TitleScene extends Phaser.Scene {
 
 
 			var dokmiBoxOutline = this.add.rectangle(850, 300, window.innerWidth * 0.5, 200, "#FFFFFF")
-			var dokmiBoxFill = this.add.rectangle(850, 295, window.innerWidth * 0.5 - 10, 190, '#56ac68')
+			var dokmiBoxFill = this.add.rectangle(850, 300, window.innerWidth * 0.5 - 10, 190).setFillStyle("#56ac68")
 		} else {
 			var invalid = this.add.text(window.innerWidth*0.1, window.innerHeight*0.5, "screen size not valid")
 		}
