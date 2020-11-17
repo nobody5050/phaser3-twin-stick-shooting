@@ -69,15 +69,15 @@ class TitleScene extends Phaser.Scene {
 			discordIcon.on('pointerdown', () => {
 				//send them to the discord invite link
 			})
-			var patreonIcon = this.add.image(50, window.innerHeight - 30, 'patreonJoinImage')//.setDisplaySize(20, 30)
+			var patreonIcon = this.add.image(60, window.innerHeight - 30, 'patreonJoinImage')//.setDisplaySize(20, 30)
 			patreonIcon.setInteractive({useHandCursor:true})
 			patreonIcon.on('pointerdown', () => {
 				//send them to the patreon page
 			})
 
 
-			var dokmiBoxOutline = this.add.rectangle(window.innerWidth * 0.50, 300, 650, 200, 0xFFFFFF)
-			var dokmiBoxFill = this.add.rectangle(window.innerWidth * 0.50, 295, 650, 190, 0x56ac68)
+			var dokmiBoxOutline = this.add.rectangle(window.innerWidth * 0.50, 150, 650, 200, 0xFFFFFF)
+			var dokmiBoxFill = this.add.rectangle(window.innerWidth * 0.50, 150, 640, 190, 0x56ac68)
 		} else {
 			var invalid = this.add.text(window.innerWidth*0.1, window.innerHeight*0.5, "screen size not valid")
 		}
