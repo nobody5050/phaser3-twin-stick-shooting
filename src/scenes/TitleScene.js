@@ -77,8 +77,8 @@ class TitleScene extends Phaser.Scene {
 			})
 
 
-			var dokmiBoxOutline = this.add.rectangle(window.innerWidth * 0.50, 150, 650, 200, 0xFFFFFF)
-			var dokmiBoxFill = this.add.rectangle(window.innerWidth * 0.50, 150, 640, 190, 0x56ac68)
+			var dokmiBoxOutline = this.add.rectangle(window.innerWidth * 0.50, 150, window.innerWidth * 0.50, 200, 0xFFFFFF)
+			var dokmiBoxFill = this.add.rectangle(window.innerWidth * 0.50, 150, window.innerWidth * 0.50 - 10, 190, 0x56ac68)
 			var dokmiText = this.add.text(window.innerWidth*0.5, 150, "DOKMI.IO",{size: 100})
 		} else {
 			var invalid = this.add.text(window.innerWidth*0.1, window.innerHeight*0.5, "screen size not valid")
