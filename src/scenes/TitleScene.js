@@ -39,6 +39,7 @@ class TitleScene extends Phaser.Scene {
 			this.scene.switch('gameScene')
 		});
 		var simulateGameEnd = this.add.text(100, 150, 'simulate game end')
+		simulateGameEnd.setInteractive({ useHandCursor: true });
 		simulateGameEnd.on('pointerdown', () => {
 			this.scene.switch('gameOverScene')
 		})
