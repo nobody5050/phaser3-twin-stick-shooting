@@ -3,7 +3,6 @@ import GameScene from './scenes/GameScene.js';
 import TitleScene from './scenes/TitleScene.js';
 
 // Setup variables
-//var client = new Colyseus.Client('ws://134.209.68.198:2567');
 var gameScene = new GameScene();
 var titleScene = new TitleScene();
 

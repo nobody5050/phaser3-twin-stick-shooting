@@ -162,6 +162,7 @@ class GameScene extends Phaser.Scene {
 	update(time, delta) {
 
 		//why is this in this class
+		// BECAUSE IT CAN BE
 		this.born += delta
 		if (this.born > 1500) {
 			this.destroy()
@@ -205,52 +206,7 @@ class GameScene extends Phaser.Scene {
 			console.log("keys up extra error")
 			keysDown = 0
 		}
-
-
-/*
-		// if (keyListDown[0] == true) {
-		// 	keyListDown[0] = false
-		// 	let speed = MAX_PLAYER_SPEED
-		// 	this.player.setVelocityY(speed * -1)
-		// }
-		// if (keyListDown[1] == true) {
-		// 	keyListDown[1] = false
-		// 	let speed = MAX_PLAYER_SPEED
-		// 	this.player.setVelocityX(speed * -1)
-		// }
-		// if (keyListDown[2] == true) {
-		// 	keyListDown[2] = false
-		// 	let speed = MAX_PLAYER_SPEED
-		// 	this.player.setVelocityY(speed * 1)
-		// }
-		// if (keyListDown[3] == true) {
-		// 	keyListDown[3] = false
-		// 	let speed = MAX_PLAYER_SPEED
-		// 	this.player.setVelocityX(speed * 1)
-		// }
-		//
-		// if (keyListUp[0] == true) {
-		// 	keyListUp[0] = false
-		// 	this.player.setVelocityY(0)
-		//
-		// }
-		// if (keyListUp[1] == true) {
-		// 	keyListUp[1] = false
-		// 	this.player.setVelocityX(0)
-		// }
-		// if (keyListUp[2] == true) {
-		// 	keyListUp[2] = false
-		// 	this.player.setVelocityY(0)
-		// }
-		// if (keyListUp[3] == true) {
-		// 	keyListUp[3] = false
-		// 	this.player.setVelocityX(0)
-		// }
-*/
-
 	}
-
-
 }
 
 /*
