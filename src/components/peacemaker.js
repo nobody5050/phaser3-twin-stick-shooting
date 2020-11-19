@@ -1,3 +1,0 @@
-const stats = {
-    // stats here
-}
