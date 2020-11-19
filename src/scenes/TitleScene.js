@@ -3,12 +3,8 @@ import GameScene from './GameScene.js';
 import GameOverScene from './GameOverScene.js';
 import discord from '../assets/socialMediaIcons/discordJoinLogo.svg';
 import patreon from '../assets/socialMediaIcons/patreonJoinLogo.svg';
-//remove for now
-//import client from '../index.js'
 import {client, clientJoin , room } from "../components/client.js";
 
-//import Colyseus from "colyseus.js";
-//let colyseusClient = new Colyseus.Client("ws://134.209.68.198:2567");
 
 class TitleScene extends Phaser.Scene {
 
@@ -17,15 +13,12 @@ class TitleScene extends Phaser.Scene {
 	}
 
 	preload() {
-		// this.load.image('background', 'images/background.jpg');
 		this.load.svg('discordJoinImage', discord, { scale: 0.1 })
 		this.load.svg('patreonJoinImage', patreon, { scale: 0.5 })
 
 	}
 
 	create() {
-		// var bg = this.add.sprite(0,0,'background');
-		// bg.setOrigin(0,0);
 		var lobbyJoin;
 		lobbyJoin = clientJoin(lobbyJoin, this, "onStart", "lobby", window.innerWidth*0.95, window.innerHeight*0.05)
 
@@ -43,12 +36,6 @@ class TitleScene extends Phaser.Scene {
 		simulateGameEnd.on('pointerdown', () => {
 			this.scene.switch('gameOverScene')
 		})
-
-		// var connect = this.add.text(200,200, 'conncect');
-		// connect.setInteractive({useHandCursor: true});
-		// serverJoin = clientJoin(serverJoin, this, connect, "battle")
-//
-		// this.textures.addImage("discordJoinImage", 'src/assets/socialMediaIcons/discordJoinLogo.png')
 
 		/*
 		Window needs to be greater than:
