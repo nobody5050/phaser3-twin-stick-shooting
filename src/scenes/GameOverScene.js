@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import GameScene from './GameScene.js';
+import TitleScene from './TitleScene.js';
 import {client, clientJoin , room } from "../components/client.js";
 
 class GameOverScene extends Phaser.Scene {
