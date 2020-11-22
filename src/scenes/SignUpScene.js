@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import LoginScene from "./LoginScene,js";
+import LoginScene from "./LoginScene.js";
 
 class SignUpScene extends Phaser.Scene  {
 
