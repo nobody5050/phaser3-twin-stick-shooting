@@ -55,13 +55,13 @@ class TitleScene extends Phaser.Scene {
 			var discordIcon = this.add.image(30, window.innerHeight - 30, 'discordJoinImage')
 			discordIcon.setInteractive({useHandCursor:true})
 			discordIcon.on('pointerdown', () => {
-				//send them to the discord invite link
-				var discordWebsite = window.open('https://discord.gg/mEF8nTF2DX')
+				let discordWebsite = window.open('https://discord.gg/mEF8nTF2DX')
 			})
 			var patreonIcon = this.add.image(60, window.innerHeight - 30, 'patreonJoinImage')
 			patreonIcon.setInteractive({useHandCursor:true})
 			patreonIcon.on('pointerdown', () => {
 				//send them to the patreon page
+				let patreonWebsite = window.open('https://www.patreon.com/dokmiOfficial')
 			})
 
 
