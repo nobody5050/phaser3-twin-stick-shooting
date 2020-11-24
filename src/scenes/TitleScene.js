@@ -56,6 +56,7 @@ class TitleScene extends Phaser.Scene {
 			discordIcon.setInteractive({useHandCursor:true})
 			discordIcon.on('pointerdown', () => {
 				//send them to the discord invite link
+				var discordWebsite = window.open('https://discord.gg/mEF8nTF2DX')
 			})
 			var patreonIcon = this.add.image(60, window.innerHeight - 30, 'patreonJoinImage')
 			patreonIcon.setInteractive({useHandCursor:true})
