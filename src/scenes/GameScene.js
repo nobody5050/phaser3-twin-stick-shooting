@@ -119,39 +119,46 @@ class GameScene extends Phaser.Scene {
 			keysDown -= 1;
 			console.log("wup")
 			keyListUp[0] = true;
+			sendMoveRequests("keyboard")
 		})
 
 		a.on('down', function(event) {
 			keysDown += 1;
 			console.log("adown")
 			keyListDown[1] = true;
+			sendMoveRequests("keyboard")
 		})
 		a.on('up', function(event) {
 			keysDown -= 1;
 			console.log("aup")
 			keyListUp[1] = true;
+			sendMoveRequests("keyboard")
 		})
 
 		s.on('down', function(event) {
 			keysDown += 1;
 			console.log("sdown")
 			keyListDown[2] = true;
+			sendMoveRequests("keyboard")
 		})
 		s.on('up', function(event) {
 			keysDown -= 1;
 			console.log("sup")
 			keyListUp[2] = true;
+			sendMoveRequests("keyboard")
 		})
 
 		d.on('down', function(event) {
 			keysDown += 1;
 			console.log("ddown")
 			keyListDown[3] = true;
+			sendMoveRequests("keyboard")
 		})
 		d.on('up', function(event) {
 			keysDown -= 1;
 			console.log("dup")
 			keyListUp[3] = true;
+			sendMoveRequests("keyboard")
 		})
 
 
