@@ -10,7 +10,6 @@ const BULLET_SPEED = 800
 var keysDown = 0
 var keyListDown = [false,false,false,false]
 
-
 class Bullet extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y) {
 		super(scene, x, y, 'bullet')
@@ -118,7 +117,7 @@ class GameScene extends Phaser.Scene {
 		w.on('up', function(event) {
 			keysDown -= 1;
 			console.log("wup")
-			keyListUp[0] = true;
+			keyListDown[0] = false;
 			sendMoveRequests("keyboard")
 		})
 
@@ -131,7 +130,7 @@ class GameScene extends Phaser.Scene {
 		a.on('up', function(event) {
 			keysDown -= 1;
 			console.log("aup")
-			keyListUp[1] = true;
+			keyListDown[1] = false;
 			sendMoveRequests("keyboard")
 		})
 
@@ -144,7 +143,7 @@ class GameScene extends Phaser.Scene {
 		s.on('up', function(event) {
 			keysDown -= 1;
 			console.log("sup")
-			keyListUp[2] = true;
+			keyListDown[2] = false;
 			sendMoveRequests("keyboard")
 		})
 
@@ -157,7 +156,7 @@ class GameScene extends Phaser.Scene {
 		d.on('up', function(event) {
 			keysDown -= 1;
 			console.log("dup")
-			keyListUp[3] = true;
+			keyListDown[3] = false;
 			sendMoveRequests("keyboard")
 		})
 
@@ -199,6 +198,9 @@ class GameScene extends Phaser.Scene {
 			let speed = MAX_PLAYER_SPEED * speedMultiplier
 
 			// Move player according to movement joystick
+			console.log(Math.PI * this.movementJoyStick.angle/180)
+			console.log(Math.PI * this.movementJoyStick.angle)
+			console.log(this.movementJoyStick.angle)
 			this.player.setVelocityX(speed * Math.cos(Math.PI * this.movementJoyStick.angle / 180))
 			this.player.setVelocityY(speed * Math.sin(Math.PI * this.movementJoyStick.angle / 180))
 		} else {
