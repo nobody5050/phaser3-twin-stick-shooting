@@ -198,9 +198,9 @@ class GameScene extends Phaser.Scene {
 			let speed = MAX_PLAYER_SPEED * speedMultiplier
 
 			// Move player according to movement joystick
-			console.log(Math.PI * this.movementJoyStick.angle/180)
-			console.log(Math.PI * this.movementJoyStick.angle)
-			console.log(this.movementJoyStick.angle)
+			console.log("p/180MA " + Math.PI * this.movementJoyStick.angle/180)
+			console.log("pMA " + Math.PI * this.movementJoyStick.angle)
+			console.log("MA " + this.movementJoyStick.angle)
 			this.player.setVelocityX(speed * Math.cos(Math.PI * this.movementJoyStick.angle / 180))
 			this.player.setVelocityY(speed * Math.sin(Math.PI * this.movementJoyStick.angle / 180))
 		} else {
