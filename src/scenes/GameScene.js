@@ -114,52 +114,52 @@ class GameScene extends Phaser.Scene {
 			keysDown += 1;
 			console.log("wdown")
 			keyListDown[0] = true;
-			sendMoveRequests(this,"keyboard")
+			sendMoveRequests(this.players,"keyboard")
 		})
 		w.on('up', function(event) {
 			keysDown -= 1;
 			console.log("wup")
 			keyListDown[0] = false;
-			sendMoveRequests(this,"keyboard")
+			sendMoveRequests(this.players,"keyboard")
 		})
 
 		a.on('down', function(event) {
 			keysDown += 1;
 			console.log("adown")
 			keyListDown[1] = true;
-			sendMoveRequests(this,"keyboard")
+			sendMoveRequests(this.player,"keyboard")
 		})
 		a.on('up', function(event) {
 			keysDown -= 1;
 			console.log("aup")
 			keyListDown[1] = false;
-			sendMoveRequests(this,"keyboard")
+			sendMoveRequests(this.player,"keyboard")
 		})
 
 		s.on('down', function(event) {
 			keysDown += 1;
 			console.log("sdown")
 			keyListDown[2] = true;
-			sendMoveRequests(this,"keyboard")
+			sendMoveRequests(this.player,"keyboard")
 		})
 		s.on('up', function(event) {
 			keysDown -= 1;
 			console.log("sup")
 			keyListDown[2] = false;
-			sendMoveRequests(this,"keyboard")
+			sendMoveRequests(this.player,"keyboard")
 		})
 
 		d.on('down', function(event) {
 			keysDown += 1;
 			console.log("ddown")
 			keyListDown[3] = true;
-			sendMoveRequests(this,"keyboard")
+			sendMoveRequests(this.player,"keyboard")
 		})
 		d.on('up', function(event) {
 			keysDown -= 1;
 			console.log("dup")
 			keyListDown[3] = false;
-			sendMoveRequests(this,"keyboard")
+			sendMoveRequests(this.player,"keyboard")
 		})
 
 
@@ -204,7 +204,7 @@ class GameScene extends Phaser.Scene {
 			console.log("pMA " + Math.PI * this.movementJoyStick.angle)
 			console.log("MA " + this.movementJoyStick.angle)
 
-			sendMoveRequests(this, "joystick", speed, this.movementJoyStick.angle)
+			sendMoveRequests(this.player, "joystick", speed, this.movementJoyStick.angle)
 			// this.player.setVelocityX(speed * Math.cos(Math.PI * this.movementJoyStick.angle / 180))
 			// this.player.setVelocityY(speed * Math.sin(Math.PI * this.movementJoyStick.angle / 180))
 		} else {
@@ -275,8 +275,8 @@ function sendMoveRequests(className, type, speed = 1, angle = 0, ) {
 
 	}
 	console.log("This: " + className)
-	className.player.setVelocityX(speed * Math.cos(Math.PI * angle / 180))
-	className.player.setVelocityY(speed * Math.sin(Math.PI * angle / 180))
+	className.setVelocityX(speed * Math.cos(Math.PI * angle / 180))
+	className.setVelocityY(speed * Math.sin(Math.PI * angle / 180))
 	room.send("move", {speed: speed, angle: angle})
 }
 
