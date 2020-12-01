@@ -24,6 +24,8 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
 		this.x = shooter.x + (50 * Math.cos(this.rotation))
 		this.y = shooter.y + (50 * Math.sin(this.rotation))
 
+
+
 		this.setVelocityX(BULLET_SPEED * Math.cos(Math.PI * this.angle / 180))
 		this.setVelocityY(BULLET_SPEED * Math.sin(Math.PI * this.angle / 180))
 
@@ -112,52 +114,52 @@ class GameScene extends Phaser.Scene {
 			keysDown += 1;
 			console.log("wdown")
 			keyListDown[0] = true;
-			sendMoveRequests("keyboard")
+			sendMoveRequests(this,"keyboard")
 		})
 		w.on('up', function(event) {
 			keysDown -= 1;
 			console.log("wup")
 			keyListDown[0] = false;
-			sendMoveRequests("keyboard")
+			sendMoveRequests(this,"keyboard")
 		})
 
 		a.on('down', function(event) {
 			keysDown += 1;
 			console.log("adown")
 			keyListDown[1] = true;
-			sendMoveRequests("keyboard")
+			sendMoveRequests(this,"keyboard")
 		})
 		a.on('up', function(event) {
 			keysDown -= 1;
 			console.log("aup")
 			keyListDown[1] = false;
-			sendMoveRequests("keyboard")
+			sendMoveRequests(this,"keyboard")
 		})
 
 		s.on('down', function(event) {
 			keysDown += 1;
 			console.log("sdown")
 			keyListDown[2] = true;
-			sendMoveRequests("keyboard")
+			sendMoveRequests(this,"keyboard")
 		})
 		s.on('up', function(event) {
 			keysDown -= 1;
 			console.log("sup")
 			keyListDown[2] = false;
-			sendMoveRequests("keyboard")
+			sendMoveRequests(this,"keyboard")
 		})
 
 		d.on('down', function(event) {
 			keysDown += 1;
 			console.log("ddown")
 			keyListDown[3] = true;
-			sendMoveRequests("keyboard")
+			sendMoveRequests(this,"keyboard")
 		})
 		d.on('up', function(event) {
 			keysDown -= 1;
 			console.log("dup")
 			keyListDown[3] = false;
-			sendMoveRequests("keyboard")
+			sendMoveRequests(this,"keyboard")
 		})
 
 
@@ -201,6 +203,8 @@ class GameScene extends Phaser.Scene {
 			console.log("p/180MA " + Math.PI * this.movementJoyStick.angle/180)
 			console.log("pMA " + Math.PI * this.movementJoyStick.angle)
 			console.log("MA " + this.movementJoyStick.angle)
+
+			sendMoveRequests(this, "joystick", speed, this.movementJoyStick.angle)
 			this.player.setVelocityX(speed * Math.cos(Math.PI * this.movementJoyStick.angle / 180))
 			this.player.setVelocityY(speed * Math.sin(Math.PI * this.movementJoyStick.angle / 180))
 		} else {
@@ -219,14 +223,15 @@ class GameScene extends Phaser.Scene {
 }
 
 /*
+keyboard
 0 is right
 90 is up
 180 is left
 270 is down
-
+then *-1
  */
-function sendMoveRequests(type) {
-	let speed, angle;
+function sendMoveRequests(className, type, speed = 1, angle = 0, ) {
+	// let speed, angle;
 	if (type == "keyboard") {
 		speed = 1;
 
@@ -264,9 +269,14 @@ function sendMoveRequests(type) {
 		} else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == true) {
 			angle = 45;
 		}
+		angle *= -1
+
+	} else if (type == "joystick") {
 
 	}
 
+	className.player.setVelocityX(speed * Math.cos(Math.PI * angle / 180))
+	className.player.setVelocityY(speed * Math.sin(Math.PI * angle / 180))
 	room.send("move", {speed: speed, angle: angle})
 }
 
