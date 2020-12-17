@@ -1,6 +1,7 @@
 let stats = {
     name: 'Dev',
     release: 'launch',
+    tier: 3,
     DMG: 20,
     AP: 2,
     delay: 0.2,
