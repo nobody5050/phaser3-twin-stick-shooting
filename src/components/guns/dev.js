@@ -1,5 +1,5 @@
 const stats = {
     //are these realistic?
-    speed: 700,
+    speed: 800,
     range: 100
 }
