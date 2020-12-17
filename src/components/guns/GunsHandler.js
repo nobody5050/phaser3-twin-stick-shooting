@@ -1,4 +1,6 @@
 //this file will import all the different gun files and export them to GameScene from one file for convinence
 import { stats as DevGun } from '../guns/Dev.js';
+import { stats as Hi_Power } from '../guns/Hi-Power.js';
 
-export { DevGun } //looks dum rn but you can add more exports into this file for easy import anywhere needed
+
+export { DevGun, Hi_Power }
