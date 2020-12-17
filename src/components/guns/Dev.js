@@ -4,6 +4,7 @@ let stats = {
     tier: 3,
     DMG: 20,
     AP: 2,
+    projectileCount: 1,
     delay: 0.2,
     spread: 2,
     range: 50,
