@@ -4,4 +4,4 @@ let stats = {
     range: 100
 }
 
-export { stats as DevGun };
+export { stats };
