@@ -1,6 +1,7 @@
 let stats = {
     name: 'Dev',
     release: 'launch',
+    catagory: 'Handgun',
     tier: 3,
     DMG: 20,
     AP: 2,
