@@ -1,6 +1,7 @@
 let stats = {
     name: 'High-Power',
     release: 'launch',
+    category: 'Handgun',
     tier: 3,
     DMG: 21,
     AP: 1,
