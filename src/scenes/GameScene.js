@@ -3,7 +3,8 @@ import playerImg from '../assets/player.png'
 import joystickImg from '../assets/joystick.png'
 import bulletImg from '../assets/bullet.png'
 import rexvirtualjoystickplugin from '../plugins/rexvirtualjoystickplugin.min.js'
-import {client, clientJoin ,room  } from "../components/client.js";
+import {client, clientJoin ,room  } from '../components/client.js';
+import { DevGun } from '../components/guns/GunsHndler.js';
 
 const MAX_PLAYER_SPEED = 200
 const BULLET_SPEED = 800
