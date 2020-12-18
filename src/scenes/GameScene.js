@@ -222,7 +222,7 @@ keyboard
 270 is down
 then *-1
  */
-function sendMoveRequests(className, type, speed = 1, angle = 0, ) {
+function sendMoveRequests(className, type, speed = 1, angle = 0, ) { //includes actually moving
 	// let speed, angle;
 	if (type == "keyboard") {
 		speed = 1;
@@ -269,12 +269,21 @@ function sendMoveRequests(className, type, speed = 1, angle = 0, ) {
 	console.log("This: " + className)
 	className.setVelocityX(speed * Math.cos(Math.PI * angle / 180))
 	className.setVelocityY(speed * Math.sin(Math.PI * angle / 180))
-	room.send("move", {speed: speed, angle: angle})
+
+
+
+	// room.send("move", {speed: speed, angle: angle})
+	// ^reenable once server online
 }
 
 function sendFireRequests(angle) {
 	//maybe add logic later
-	room.send("fire", {angle:angle})
+
+
+
+
+	// room.send("fire", {angle:angle})
+	// ^reenable once server online
 }
 
 export default GameScene;
