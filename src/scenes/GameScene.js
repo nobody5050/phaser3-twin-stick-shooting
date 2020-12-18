@@ -10,6 +10,8 @@ var keysDown = 0
 var keyListDown = [false,false,false,false]
 var currentGun = "Dev"
 var BULLET_SPEED = currentGun.speed; //this is incredibly hacky, but it just might work haha
+var MAX_PLAYER_SPEED = 1; //even more hacky
+
 
 class Bullet extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y) {
