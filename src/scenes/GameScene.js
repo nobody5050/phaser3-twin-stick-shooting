@@ -1,15 +1,21 @@
-import Phaser from 'phaser';
+import Phaser from 'phaser'
 import playerImg from '../assets/player.png'
 import joystickImg from '../assets/joystick.png'
 import bulletImg from '../assets/bullet.png'
 import rexvirtualjoystickplugin from '../plugins/rexvirtualjoystickplugin.min.js'
-import {client, clientJoin ,room  } from '../components/client.js';
-import { DevGun } from '../components/guns/GunsHandler.js';
+import {client, clientJoin ,room  } from '../components/client.js'
+import { Dev } from '../components/guns/GunsHandler.js'
 
 const MAX_PLAYER_SPEED = 200
 const BULLET_SPEED = 800
 var keysDown = 0
 var keyListDown = [false,false,false,false]
+//temp
+var currentGun = "Dev"
+/*
+var currentGun
+ */
+
 
 class Bullet extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y) {
@@ -39,7 +45,7 @@ class GameScene extends Phaser.Scene {
 
 
 	constructor() {
-		super({key : 'gameScene'});
+		super({key : 'gameScene'})
 	}
 	
 	preload() {
@@ -52,10 +58,10 @@ class GameScene extends Phaser.Scene {
 
 	create() {
 
-		var w = this.input.keyboard.addKey('W');
-		var a = this.input.keyboard.addKey('A');
-		var s = this.input.keyboard.addKey('S');
-		var d = this.input.keyboard.addKey('D');
+		var w = this.input.keyboard.addKey('W')
+		var a = this.input.keyboard.addKey('A')
+		var s = this.input.keyboard.addKey('S')
+		var d = this.input.keyboard.addKey('D')
 
 		// Create player
 		this.player = this.physics.add.sprite(200, 200, 'player')
@@ -112,46 +118,46 @@ class GameScene extends Phaser.Scene {
 		})
 
 		w.on('down', function(event) {
-			keysDown += 1;
-			keyListDown[0] = true;
+			keysDown += 1
+			keyListDown[0] = true
 			sendMoveRequests(this.players,"keyboard")
 		})
 		w.on('up', function(event) {
-			keysDown -= 1;
-			keyListDown[0] = false;
+			keysDown -= 1
+			keyListDown[0] = false
 			sendMoveRequests(this.players,"keyboard")
 		})
 
 		a.on('down', function(event) {
-			keysDown += 1;
-			keyListDown[1] = true;
+			keysDown += 1
+			keyListDown[1] = true
 			sendMoveRequests(this.player,"keyboard")
 		})
 		a.on('up', function(event) {
-			keysDown -= 1;
-			keyListDown[1] = false;
+			keysDown -= 1
+			keyListDown[1] = false
 			sendMoveRequests(this.player,"keyboard")
 		})
 
 		s.on('down', function(event) {
-			keysDown += 1;
-			keyListDown[2] = true;
+			keysDown += 1
+			keyListDown[2] = true
 			sendMoveRequests(this.player,"keyboard")
 		})
 		s.on('up', function(event) {
-			keysDown -= 1;
-			keyListDown[2] = false;
+			keysDown -= 1
+			keyListDown[2] = false
 			sendMoveRequests(this.player,"keyboard")
 		})
 
 		d.on('down', function(event) {
-			keysDown += 1;
-			keyListDown[3] = true;
+			keysDown += 1
+			keyListDown[3] = true
 			sendMoveRequests(this.player,"keyboard")
 		})
 		d.on('up', function(event) {
-			keysDown -= 1;
-			keyListDown[3] = false;
+			keysDown -= 1
+			keyListDown[3] = false
 			sendMoveRequests(this.player,"keyboard")
 		})
 
@@ -221,43 +227,43 @@ keyboard
 then *-1
  */
 function sendMoveRequests(className, type, speed = 1, angle = 0, ) {
-	// let speed, angle;
+	// let speed, angle
 	if (type == "keyboard") {
-		speed = 1;
+		speed = 1
 
 		if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == true) {
-			speed = 0;
-			angle = 0;
+			speed = 0
+			angle = 0
 		} else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == true) {
-			angle = 0;
-			speed = 0;
+			angle = 0
+			speed = 0
 		} else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == false) {
-			angle = 0;
-			speed = 0;
+			angle = 0
+			speed = 0
 		} else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == true) {
-			angle = 270;
+			angle = 270
 		} else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == true) {
-			angle = 90;
+			angle = 90
 		} else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == true) {
-			angle = 0;
+			angle = 0
 		} else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == false) {
-			angle = 180;
+			angle = 180
 		} else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == false) {
-			angle = 270;
+			angle = 270
 		} else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == false) {
-			angle = 90;
+			angle = 90
 		} else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == true) {
-			angle = 0;
+			angle = 0
 		} else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == false) {
-		 	angle = 180;
+		 	angle = 180
 		} else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == false) {
-			angle = 135;
+			angle = 135
 		} else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == false) {
-			angle = 225;
+			angle = 225
 		} else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == true) {
-			angle = 305;
+			angle = 305
 		} else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == true) {
-			angle = 45;
+			angle = 45
 		}
 		angle *= -1
 
@@ -275,4 +281,4 @@ function sendFireRequests(angle) {
 	room.send("fire", {angle:angle})
 }
 
-export default GameScene;
+export default GameScene
