@@ -114,12 +114,12 @@ class GameScene extends Phaser.Scene {
 		w.on('down', function(event) {
 			keysDown += 1;
 			keyListDown[0] = true;
-			sendMoveRequests(this.players,"keyboard")
+			sendMoveRequests(this.player,"keyboard")
 		})
 		w.on('up', function(event) {
 			keysDown -= 1;
 			keyListDown[0] = false;
-			sendMoveRequests(this.players,"keyboard")
+			sendMoveRequests(this.player,"keyboard")
 		})
 
 		a.on('down', function(event) {
