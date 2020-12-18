@@ -9,7 +9,7 @@ import { Dev, Hi_Power, Stechkin_APS } from '../components/guns/GunsHandler.js';
 var keysDown = 0
 var keyListDown = [false,false,false,false]
 var currentGun = "Dev"
-
+var BULLET_SPEED = currentGun.speed; //this is incredibly hacky, but it just might work haha
 
 class Bullet extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y) {
