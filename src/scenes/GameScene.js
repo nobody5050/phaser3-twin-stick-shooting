@@ -113,52 +113,44 @@ class GameScene extends Phaser.Scene {
 
 		w.on('down', function(event) {
 			keysDown += 1;
-			console.log("wdown")
 			keyListDown[0] = true;
 			sendMoveRequests(this.players,"keyboard")
 		})
 		w.on('up', function(event) {
 			keysDown -= 1;
-			console.log("wup")
 			keyListDown[0] = false;
 			sendMoveRequests(this.players,"keyboard")
 		})
 
 		a.on('down', function(event) {
 			keysDown += 1;
-			console.log("adown")
 			keyListDown[1] = true;
 			sendMoveRequests(this.player,"keyboard")
 		})
 		a.on('up', function(event) {
 			keysDown -= 1;
-			console.log("aup")
 			keyListDown[1] = false;
 			sendMoveRequests(this.player,"keyboard")
 		})
 
 		s.on('down', function(event) {
 			keysDown += 1;
-			console.log("sdown")
 			keyListDown[2] = true;
 			sendMoveRequests(this.player,"keyboard")
 		})
 		s.on('up', function(event) {
 			keysDown -= 1;
-			console.log("sup")
 			keyListDown[2] = false;
 			sendMoveRequests(this.player,"keyboard")
 		})
 
 		d.on('down', function(event) {
 			keysDown += 1;
-			console.log("ddown")
 			keyListDown[3] = true;
 			sendMoveRequests(this.player,"keyboard")
 		})
 		d.on('up', function(event) {
 			keysDown -= 1;
-			console.log("dup")
 			keyListDown[3] = false;
 			sendMoveRequests(this.player,"keyboard")
 		})
@@ -170,8 +162,6 @@ class GameScene extends Phaser.Scene {
 
 	update(time, delta) {
 
-		//why is this in this class
-		// BECAUSE IT CAN BE
 		this.born += delta
 		if (this.born > 1500) {
 			this.destroy()
