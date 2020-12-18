@@ -225,7 +225,7 @@ then *-1
 function sendMoveRequests(className, type, speed = 1, angle = 0, ) { //includes actually moving
 	// let speed, angle;
 	if (type == "keyboard") {
-		speed = 1;
+		// speed = 1;
 
 		if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == true) {
 			speed = 0;
@@ -264,9 +264,11 @@ function sendMoveRequests(className, type, speed = 1, angle = 0, ) { //includes 
 		angle *= -1
 
 	} else if (type == "joystick") {
-
+//nothing i think needs to happen
 	}
-	console.log("This: " + className)
+	// console.log("This: " + className)
+	console.log(speed + "speed")
+	console.log(angle + "angle")
 	className.setVelocityX(speed * Math.cos(Math.PI * angle / 180))
 	className.setVelocityY(speed * Math.sin(Math.PI * angle / 180))
 
