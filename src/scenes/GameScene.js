@@ -215,7 +215,6 @@ class GameScene extends Phaser.Scene {
 				this.player.setVelocityY(0)
 			}
 		}
-		// console.log(keysDown)
 		if (keysDown < 0) {
 			console.log("keys up extra error")
 			keysDown = 0
