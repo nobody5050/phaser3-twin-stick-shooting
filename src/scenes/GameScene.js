@@ -116,45 +116,61 @@ class GameScene extends Phaser.Scene {
 		w.on('down', function(event) {
 			keysDown += 1;
 			keyListDown[0] = true;
-			sendMoveRequests(this.player,"keyboard")
+			let movement = sendMoveRequests(this.player,"keyboard")
+			this.player.setVelocityX(movement.x)
+			this.player.setVelocityY(movement.y)
 		})
 		w.on('up', function(event) {
 			keysDown -= 1;
 			keyListDown[0] = false;
-			sendMoveRequests(this.player,"keyboard")
+			let movement = sendMoveRequests(this.player,"keyboard")
+			this.player.setVelocityX(movement.x)
+			this.player.setVelocityY(movement.y)
 		})
 
 		a.on('down', function(event) {
 			keysDown += 1;
 			keyListDown[1] = true;
-			sendMoveRequests(this.player,"keyboard")
+			let movement = sendMoveRequests(this.player,"keyboard")
+			this.player.setVelocityX(movement.x)
+			this.player.setVelocityY(movement.y)
 		})
 		a.on('up', function(event) {
 			keysDown -= 1;
 			keyListDown[1] = false;
-			sendMoveRequests(this.player,"keyboard")
+			let movement = sendMoveRequests(this.player,"keyboard")
+			this.player.setVelocityX(movement.x)
+			this.player.setVelocityY(movement.y)
 		})
 
 		s.on('down', function(event) {
 			keysDown += 1;
 			keyListDown[2] = true;
-			sendMoveRequests(this.player,"keyboard")
+			let movement = sendMoveRequests(this.player,"keyboard")
+			this.player.setVelocityX(movement.x)
+			this.player.setVelocityY(movement.y)
 		})
 		s.on('up', function(event) {
 			keysDown -= 1;
 			keyListDown[2] = false;
-			sendMoveRequests(this.player,"keyboard")
+			let movement = sendMoveRequests(this.player,"keyboard")
+			this.player.setVelocityX(movement.x)
+			this.player.setVelocityY(movement.y)
 		})
 
 		d.on('down', function(event) {
 			keysDown += 1;
 			keyListDown[3] = true;
-			sendMoveRequests(this.player,"keyboard")
+			let movement = sendMoveRequests(this.player,"keyboard")
+			this.player.setVelocityX(movement.x)
+			this.player.setVelocityY(movement.y)
 		})
 		d.on('up', function(event) {
 			keysDown -= 1;
 			keyListDown[3] = false;
-			sendMoveRequests(this.player,"keyboard")
+			let movement = sendMoveRequests(this.player,"keyboard")
+			this.player.setVelocityX(movement.x)
+			this.player.setVelocityY(movement.y)
 		})
 
 
@@ -197,15 +213,16 @@ class GameScene extends Phaser.Scene {
 			console.log("pMA " + Math.PI * this.movementJoyStick.angle)
 			console.log("MA " + this.movementJoyStick.angle)
 
-			sendMoveRequests(this.player, "joystick", speed, this.movementJoyStick.angle)
+			let movement = sendMoveRequests(this.player, "joystick", speed, this.movementJoyStick.angle)
+			this.player.setVelocityX(movement.x)
+			this.player.setVelocityY(movement.y)
 			// this.player.setVelocityX(speed * Math.cos(Math.PI * this.movementJoyStick.angle / 180))
 			// this.player.setVelocityY(speed * Math.sin(Math.PI * this.movementJoyStick.angle / 180))
 		} else {
 			// Stop moving
-			if (keysDown <= 0) {
-				this.player.setVelocityX(0)
-				this.player.setVelocityY(0)
-			}
+			let movement = sendMoveRequests(this.player,"keyboard")
+			this.player.setVelocityX(movement.x)
+			this.player.setVelocityY(movement.y)
 		}
 		if (keysDown < 0) {
 			console.log("keys up extra error")
@@ -269,10 +286,10 @@ function sendMoveRequests(className, type, speed = 1, angle = 0, ) { //includes 
 	// console.log("This: " + className)
 	console.log(speed + "speed")
 	console.log(angle + "angle")
-	className.setVelocityX(speed * Math.cos(Math.PI * angle / 180))
-	className.setVelocityY(speed * Math.sin(Math.PI * angle / 180))
+	let x = speed * Math.cos(Math.PI * angle / 180)
+	let y = speed * Math.sin(Math.PI * angle / 180)
 
-
+	return {x, y};
 
 	// room.send("move", {speed: speed, angle: angle})
 	// ^reenable once server online
