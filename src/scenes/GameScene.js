@@ -124,8 +124,8 @@ class GameScene extends Phaser.Scene {
 			keysDown -= 1;
 			keyListDown[0] = false;
 			let movement = sendMoveRequests(this.player,"keyboard")
-			this.player.setVelocityX(movement.x)
-			this.player.setVelocityY(movement.y)
+			this.setVelocityX(movement.x)
+			this.setVelocityY(movement.y)
 		})
 
 		a.on('down', function(event) {
