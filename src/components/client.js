@@ -4,7 +4,7 @@ import Phaser from 'phaser';
 let client = new Colyseus.Client("ws://134.209.68.198:2567");
 let room;
 
-function clientJoin(serverJoin, instance, connect, name, posX = window.innerWidth*0.05, posY = window.innerHeight*0.05) {
+function clientJoin(serverJoin, instance, connect, name, posX = window.innerWidth*0.5, posY = window.innerHeight*0.5) {
 	if (connect === "onStart") {
 		client.joinOrCreate(name, {/* options */}).then(room => {
 			console.log("joined successfully", room);
