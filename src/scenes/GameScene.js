@@ -309,7 +309,7 @@ function sendMoveRequests(className, type, speed = 1, angle = 0,) { //includes a
     let x = speed * Math.cos(Math.PI * angle / 180)
     let y = speed * Math.sin(Math.PI * angle / 180)
 
-    return {x, y};
+    return {'x': x, 'y': y};
 
     // room.send("move", {speed: speed, angle: angle})
     // ^reenable once server online
