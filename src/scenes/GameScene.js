@@ -116,63 +116,74 @@ class GameScene extends Phaser.Scene {
 		w.on('down', function(event) {
 			keysDown += 1;
 			keyListDown[0] = true;
-			let movement = sendMoveRequests(this.player,"keyboard")
-			this.player.setVelocityX(movement.x)
-			this.player.setVelocityY(movement.y)
+
+            move()
 		})
-		w.on('up', function(event) {
+        w.on('up', function(event) {
 			keysDown -= 1;
 			keyListDown[0] = false;
-			let movement = sendMoveRequests(this.player,"keyboard")
-			this.player.setVelocityX(movement.x)
-			this.player.setVelocityY(movement.y)
+			// let movement = sendMoveRequests(this.player,"keyboard")
+			// this.player.setVelocityX(movement.x)
+			// this.player.setVelocityY(movement.y)
+            move()
 		})
-
 		a.on('down', function(event) {
 			keysDown += 1;
 			keyListDown[1] = true;
-			let movement = sendMoveRequests(this.player,"keyboard")
-			this.player.setVelocityX(movement.x)
-			this.player.setVelocityY(movement.y)
-		})
-		a.on('up', function(event) {
-			keysDown -= 1;
-			keyListDown[1] = false;
-			let movement = sendMoveRequests(this.player,"keyboard")
-			this.player.setVelocityX(movement.x)
-			this.player.setVelocityY(movement.y)
+			// let movement = sendMoveRequests(this.player,"keyboard")
+			// this.player.setVelocityX(movement.x)
+			// this.player.setVelocityY(movement.y)
+            move()
 		})
 
+        a.on('up', function(event) {
+			keysDown -= 1;
+			keyListDown[1] = false;
+			// let movement = sendMoveRequests(this.player,"keyboard")
+			// this.player.setVelocityX(movement.x)
+			// this.player.setVelocityY(movement.y)
+            move()
+		})
 		s.on('down', function(event) {
 			keysDown += 1;
 			keyListDown[2] = true;
-			let movement = sendMoveRequests(this.player,"keyboard")
-			this.player.setVelocityX(movement.x)
-			this.player.setVelocityY(movement.y)
-		})
-		s.on('up', function(event) {
-			keysDown -= 1;
-			keyListDown[2] = false;
-			let movement = sendMoveRequests(this.player,"keyboard")
-			this.player.setVelocityX(movement.x)
-			this.player.setVelocityY(movement.y)
+			// let movement = sendMoveRequests(this.player,"keyboard")
+			// this.player.setVelocityX(movement.x)
+			// this.player.setVelocityY(movement.y)
+            move()
 		})
 
+        s.on('up', function(event) {
+			keysDown -= 1;
+			keyListDown[2] = false;
+			// let movement = sendMoveRequests(this.player,"keyboard")
+			// this.player.setVelocityX(movement.x)
+			// this.player.setVelocityY(movement.y)
+            move()
+		})
 		d.on('down', function(event) {
 			keysDown += 1;
 			keyListDown[3] = true;
-			let movement = sendMoveRequests(this.player,"keyboard")
-			this.player.setVelocityX(movement.x)
-			this.player.setVelocityY(movement.y)
-		})
-		d.on('up', function(event) {
-			keysDown -= 1;
-			keyListDown[3] = false;
-			let movement = sendMoveRequests(this.player,"keyboard")
-			this.player.setVelocityX(movement.x)
-			this.player.setVelocityY(movement.y)
+			// let movement = sendMoveRequests(this.player,"keyboard")
+			// this.player.setVelocityX(movement.x)
+			// this.player.setVelocityY(movement.y)
+            move()
 		})
 
+        d.on('up', function(event) {
+			keysDown -= 1;
+			keyListDown[3] = false;
+			// let movement = sendMoveRequests(this.player,"keyboard")
+			// this.player.setVelocityX(movement.x)
+			// this.player.setVelocityY(movement.y)
+            move()
+		})
+        function move() {
+        let movement = sendMoveRequests(this.player,"keyboard")
+        this.player.setVelocityX(movement.x)
+        this.player.setVelocityY(movement.y)
+
+        }
 
 		this.bullets = this.physics.add.group({ classType: Bullet, runChildUpdate: true })
 		this.bulletCooldown = 0
