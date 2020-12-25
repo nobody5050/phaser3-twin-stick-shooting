@@ -11,7 +11,7 @@ var keyListDown = [false,false,false,false]
 var currentGun = "Dev"
 var BULLET_SPEED = currentGun.speed; //this is incredibly hacky, but it just might work haha
 var MAX_PLAYER_SPEED = 1; //even more hacky
-
+// var tempLocation = {'x': NaN, 'y': NaN}
 
 class Bullet extends Phaser.Physics.Arcade.Sprite {
 	constructor(scene, x, y) {
@@ -220,10 +220,18 @@ class GameScene extends Phaser.Scene {
 			// this.player.setVelocityY(speed * Math.sin(Math.PI * this.movementJoyStick.angle / 180))
 		} else {
 			// Stop moving
+
 			let movement = sendMoveRequests(this.player,"keyboard")
+
+            if (movement.x == 0 && movement.y == 0) {
+
+            } else {
+
 			this.player.setVelocityX(movement.x)
 			this.player.setVelocityY(movement.y)
+            }
 		}
+
 		if (keysDown < 0) {
 			console.log("keys up extra error")
 			keysDown = 0
@@ -284,8 +292,8 @@ function sendMoveRequests(className, type, speed = 1, angle = 0, ) { //includes 
 //nothing i think needs to happen
 	}
 	// console.log("This: " + className)
-	console.log(speed + "speed")
-	console.log(angle + "angle")
+	// console.log(speed + "speed")
+	// console.log(angle + "angle")
 	let x = speed * Math.cos(Math.PI * angle / 180)
 	let y = speed * Math.sin(Math.PI * angle / 180)
 
