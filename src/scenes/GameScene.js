@@ -187,8 +187,8 @@ class GameScene extends Phaser.Scene {
             shouldMove = true;
         }
         if (shouldMove) {
-            let movement = sendMoveRequests(Gamescene.player, "keyboard")
-            
+            let movement = sendMoveRequests(this.player, "keyboard")
+
         this.player.setVelocityY(movement.y)
         }
 
