@@ -178,14 +178,20 @@ class GameScene extends Phaser.Scene {
             // this.player.setVelocityY(movement.y)
             move()
         })
-
+        let shouldMove = false
         function move() {
-            let movement = sendMoveRequests(this.player, "keyboard")
-            GameScene.player.setVelocityX(movement.x)
-            console.log(this.player);
-            this.player.setVelocityY(movement.y)
-
+            // let movement = sendMoveRequests(Gamescene.player, "keyboard")
+            // GameScene.player.setVelocityX(movement.x)
+            // console.log(this.player);
+            // this.player.setVelocityY(movement.y)
+            shouldMove = true;
         }
+        if (shouldMove) {
+            let movement = sendMoveRequests(Gamescene.player, "keyboard")
+            
+        this.player.setVelocityY(movement.y)
+        }
+
 
         this.bullets = this.physics.add.group({classType: Bullet, runChildUpdate: true})
         this.bulletCooldown = 0
