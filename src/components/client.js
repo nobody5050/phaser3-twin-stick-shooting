@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 
-let client = new Colyseus.Client("ws://134.209.68.198:2567");
+let client = new Colyseus.Client("blip-coin.heroku.com");
 let room;
 
 function clientJoin(serverJoin, instance, connect, name, posX = window.innerWidth*0.5, posY = window.innerHeight*0.5) {
