@@ -183,6 +183,7 @@ class GameScene extends Phaser.Scene {
             let movement = sendMoveRequests(this.player, "keyboard")
             this.player.setVelocityX(movement.x)
             this.player.setVelocityY(movement.y)
+            console.log(this.player);
 
         }
 
@@ -228,6 +229,7 @@ class GameScene extends Phaser.Scene {
             let movement = sendMoveRequests(this.player, "joystick", speed, this.movementJoyStick.angle)
             this.player.setVelocityX(movement.x)
             this.player.setVelocityY(movement.y)
+            console.log(this.player);
             // this.player.setVelocityX(speed * Math.cos(Math.PI * this.movementJoyStick.angle / 180))
             // this.player.setVelocityY(speed * Math.sin(Math.PI * this.movementJoyStick.angle / 180))
         } else {
