@@ -10,7 +10,7 @@ var titleScene = new TitleScene();
 const config = {
   type: Phaser.AUTO,
   parent: 'phaser-example',
-  backgroundColor: '#88bF49',
+  backgroundColor: '#69A84F',
   width: '100%',
   height: '100%',
   physics: {
