@@ -189,7 +189,7 @@ class GameScene extends Phaser.Scene {
         if (shouldMove) {
             let movement = sendMoveRequests(this.player, "keyboard")
 
-        this.player.setVelocityY(movement.y)
+            this.player.setVelocityY(movement.y)
         }
 
 
@@ -317,7 +317,7 @@ function sendMoveRequests(className, type, speed = 1, angle = 0,) { //includes a
     // console.log(angle + "angle")
     let x = speed * Math.cos(Math.PI * angle / 180)
     let y = speed * Math.sin(Math.PI * angle / 180)
-        // console.log("x" + x)
+    // console.log("x" + x)
     return {'x': x, 'y': y};
 
     // room.send("move", {speed: speed, angle: angle})
