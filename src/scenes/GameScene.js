@@ -3,9 +3,15 @@ import playerImg from '../assets/player.png'
 import joystickImg from '../assets/joystick.png'
 import bulletImg from '../assets/bullet.png'
 import rexvirtualjoystickplugin from '../plugins/rexvirtualjoystickplugin.min.js'
+import {client, clientJoin, room} from '../components/client.js';
+import {Dev, Hi_Power, Stechkin_APS} from '../components/guns/GunsHandler.js';
 
-const MAX_PLAYER_SPEED = 200
-const BULLET_SPEED = 800
+var keysDown = 0
+var keyListDown = [false, false, false, false]
+var currentGun = "Dev"
+var BULLET_SPEED = currentGun.speed; //this is incredibly hacky, but it just might work haha
+var MAX_PLAYER_SPEED = 1; //even more hacky
+// var tempLocation = {'x': NaN, 'y': NaN}
 
 class Bullet extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y) {
@@ -21,6 +27,7 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
         this.x = shooter.x + (50 * Math.cos(this.rotation))
         this.y = shooter.y + (50 * Math.sin(this.rotation))
 
+
         this.setVelocityX(BULLET_SPEED * Math.cos(Math.PI * this.angle / 180))
         this.setVelocityY(BULLET_SPEED * Math.sin(Math.PI * this.angle / 180))
 
@@ -29,6 +36,7 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
 }
 
 class GameScene extends Phaser.Scene {
+
 
     constructor() {
         super({key: 'gameScene'});
@@ -43,6 +51,12 @@ class GameScene extends Phaser.Scene {
     }
 
     create() {
+
+        var w = this.input.keyboard.addKey('W');
+        var a = this.input.keyboard.addKey('A');
+        var s = this.input.keyboard.addKey('S');
+        var d = this.input.keyboard.addKey('D');
+
         // Create player
         this.player = this.physics.add.sprite(200, 200, 'player')
         this.player.setCollideWorldBounds(true)
@@ -52,7 +66,7 @@ class GameScene extends Phaser.Scene {
         // Create movement joystick
         this.movementJoyStick = this.plugins.get('rexvirtualjoystickplugin').add(this.scene, {
             x: window.innerWidth * 0.1,
-            y: window.innerHeight * 0.9,
+            y: window.innerHeight * 0.8,
             radius: 40,
             forceMin: 0,
             base: this.add.circle(0, 0, 60, 0x888888).setDepth(100).setAlpha(0.25),
@@ -63,7 +77,7 @@ class GameScene extends Phaser.Scene {
         // Create shooting joystick
         this.shootJoyStick = this.plugins.get('rexvirtualjoystickplugin').add(this.scene, {
             x: window.innerWidth * 0.9,
-            y: window.innerHeight * 0.9,
+            y: window.innerHeight * 0.8,
             radius: 20,
             forceMin: 0,
             base: this.add.circle(0, 0, 60, 0x888888, 0.5).setDepth(100).setAlpha(0.25),
@@ -88,49 +102,96 @@ class GameScene extends Phaser.Scene {
             if (!this.movementJoyStick.force) {
                 this.movementJoyStick.base.setAlpha(0.25)
                 this.movementJoyStick.thumb.setAlpha(0.5)
-                this.movementJoyStick.base.setPosition(window.innerWidth * 0.1, window.innerHeight * 0.9)
-                this.movementJoyStick.thumb.setPosition(window.innerWidth * 0.1, window.innerHeight * 0.9)
+                this.movementJoyStick.base.setPosition(window.innerWidth * 0.1, window.innerHeight * 0.8)
+                this.movementJoyStick.thumb.setPosition(window.innerWidth * 0.1, window.innerHeight * 0.8)
             }
             if (!this.shootJoyStick.force) {
                 this.shootJoyStick.base.setAlpha(0.25)
                 this.shootJoyStick.thumb.setAlpha(0.5)
-                this.shootJoyStick.base.setPosition(window.innerWidth * 0.9, window.innerHeight * 0.9)
-                this.shootJoyStick.thumb.setPosition(window.innerWidth * 0.9, window.innerHeight * 0.9)
+                this.shootJoyStick.base.setPosition(window.innerWidth * 0.9, window.innerHeight * 0.8)
+                this.shootJoyStick.thumb.setPosition(window.innerWidth * 0.9, window.innerHeight * 0.8)
             }
         })
 
-        this.input.on('keydown', (event) => {
-            let speed = MAX_PLAYER_SPEED
-            if (event.key == 'a') {
-                this.player.setVelocityX(speed * 1 + this.player.velocity)
-            }
-            if (event.key == 'd') {
-                this.player.setVelocityX(speed * -1 + this.player.velocity)
-            }
-            if (event.key == 's') {
-                this.player.setVelocityX(speed * 1 + this.player.velocity)
-            }
-            if (event.key == 'd') {
-                this.player.setVelocityX(speed * -1 + this.player.velocity)
-            }
+        w.on('down', function (event) {
+            keysDown += 1;
+            keyListDown[0] = true;
 
+            move()
         })
-        this.input.on('keyup', (event) => {
-            let speed = MAX_PLAYER_SPEED
-            if (event.key == 'a') {
-                this.player.setVelocityX(speed * -1 + this.player.velocity)
-            }
-            if (event.key == 'd') {
-                this.player.setVelocityX(speed * 1 + this.player.velocity)
-            }
-            if (event.key == 's') {
-                this.player.setVelocityX(speed * -1 + this.player.velocity)
-            }
-            if (event.key == 'd') {
-                this.player.setVelocityX(speed * 1 + this.player.velocity)
-            }
+        w.on('up', function (event) {
+            keysDown -= 1;
+            keyListDown[0] = false;
+            // let movement = sendMoveRequests(this.player,"keyboard")
+            // this.player.setVelocityX(movement.x)
+            // this.player.setVelocityY(movement.y)
+            move()
+        })
+        a.on('down', function (event) {
+            keysDown += 1;
+            keyListDown[1] = true;
+            // let movement = sendMoveRequests(this.player,"keyboard")
+            // this.player.setVelocityX(movement.x)
+            // this.player.setVelocityY(movement.y)
+            move()
+        })
 
+        a.on('up', function (event) {
+            keysDown -= 1;
+            keyListDown[1] = false;
+            // let movement = sendMoveRequests(this.player,"keyboard")
+            // this.player.setVelocityX(movement.x)
+            // this.player.setVelocityY(movement.y)
+            move()
         })
+        s.on('down', function (event) {
+            keysDown += 1;
+            keyListDown[2] = true;
+            // let movement = sendMoveRequests(this.player,"keyboard")
+            // this.player.setVelocityX(movement.x)
+            // this.player.setVelocityY(movement.y)
+            move()
+        })
+
+        s.on('up', function (event) {
+            keysDown -= 1;
+            keyListDown[2] = false;
+            // let movement = sendMoveRequests(this.player,"keyboard")
+            // this.player.setVelocityX(movement.x)
+            // this.player.setVelocityY(movement.y)
+            move()
+        })
+        d.on('down', function (event) {
+            keysDown += 1;
+            keyListDown[3] = true;
+            // let movement = sendMoveRequests(this.player,"keyboard")
+            // this.player.setVelocityX(movement.x)
+            // this.player.setVelocityY(movement.y)
+            move()
+        })
+
+        d.on('up', function (event) {
+            keysDown -= 1;
+            keyListDown[3] = false;
+            // let movement = sendMoveRequests(this.player,"keyboard")
+            // this.player.setVelocityX(movement.x)
+            // this.player.setVelocityY(movement.y)
+            move()
+        })
+        let shouldMove = false
+        function move() {
+            // let movement = sendMoveRequests(Gamescene.player, "keyboard")
+            // GameScene.player.setVelocityX(movement.x)
+            // console.log(this.player);
+            // this.player.setVelocityY(movement.y)
+            shouldMove = true;
+        }
+        if (shouldMove) {
+            let movement = sendMoveRequests(this.player, "keyboard")
+
+        this.player.setVelocityY(movement.y)
+        }
+
 
         this.bullets = this.physics.add.group({classType: Bullet, runChildUpdate: true})
         this.bulletCooldown = 0
@@ -167,15 +228,108 @@ class GameScene extends Phaser.Scene {
             let speed = MAX_PLAYER_SPEED * speedMultiplier
 
             // Move player according to movement joystick
-            this.player.setVelocityX(speed * Math.cos(Math.PI * this.movementJoyStick.angle / 180))
-            this.player.setVelocityY(speed * Math.sin(Math.PI * this.movementJoyStick.angle / 180))
+            console.log("p/180MA " + Math.PI * this.movementJoyStick.angle / 180)
+            console.log("pMA " + Math.PI * this.movementJoyStick.angle)
+            console.log("MA " + this.movementJoyStick.angle)
+
+            let movement = sendMoveRequests(this.player, "joystick", speed, this.movementJoyStick.angle)
+            this.player.setVelocityX(movement.x)
+            this.player.setVelocityY(movement.y)
+            console.log("m" + movement.x);
+            console.log(this.player);
+            // this.player.setVelocityX(speed * Math.cos(Math.PI * this.movementJoyStick.angle / 180))
+            // this.player.setVelocityY(speed * Math.sin(Math.PI * this.movementJoyStick.angle / 180))
         } else {
             // Stop moving
-            this.player.setVelocityX(0)
-            this.player.setVelocityY(0)
+
+            let movement = sendMoveRequests(this.player, "keyboard")
+
+            if (movement.x == 0 && movement.y == 0) {
+
+            } else {
+
+                this.player.setVelocityX(movement.x)
+                this.player.setVelocityY(movement.y)
+            }
         }
 
+        if (keysDown < 0) {
+            console.log("keys up extra error")
+            keysDown = 0
+        }
     }
+}
+
+/*
+keyboard
+0 is right
+90 is up
+180 is left
+270 is down
+then *-1
+ */
+function sendMoveRequests(className, type, speed = 1, angle = 0,) { //includes actually moving
+    // let speed, angle;
+    if (type == "keyboard") {
+        // speed = 1;
+
+        if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == true) {
+            speed = 0;
+            angle = 0;
+        } else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == true) {
+            angle = 0;
+            speed = 0;
+        } else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == false) {
+            angle = 0;
+            speed = 0;
+        } else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == true) {
+            angle = 270;
+        } else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == true) {
+            angle = 90;
+        } else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == true) {
+            angle = 0;
+        } else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == false) {
+            angle = 180;
+        } else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == false) {
+            angle = 270;
+        } else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == false) {
+            angle = 90;
+        } else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == true) {
+            angle = 0;
+        } else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == false) {
+            angle = 180;
+        } else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == false) {
+            angle = 135;
+        } else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == false) {
+            angle = 225;
+        } else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == true) {
+            angle = 305;
+        } else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == true) {
+            angle = 45;
+        }
+        angle *= -1
+
+    } else if (type == "joystick") {
+//nothing i think needs to happen
+    }
+    // console.log("This: " + className)
+    // console.log(speed + "speed")
+    // console.log(angle + "angle")
+    let x = speed * Math.cos(Math.PI * angle / 180)
+    let y = speed * Math.sin(Math.PI * angle / 180)
+        // console.log("x" + x)
+    return {'x': x, 'y': y};
+
+    // room.send("move", {speed: speed, angle: angle})
+    // ^reenable once server online
+}
+
+function sendFireRequests(angle) {
+    //maybe add logic later
+
+
+    // room.send("fire", {angle:angle})
+    // ^reenable once server online
 }
 
 export default GameScene;
