@@ -270,41 +270,41 @@ then *-1
  */
 function sendMoveRequests(className, type, speed = 1, angle = 0,) { //includes actually moving
     // let speed, angle;
-    if (type == "keyboard") {
+    if (type === "keyboard") {
         // speed = 1;
 
-        if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == true) {
+        if (keyListDown[0] === true && keyListDown[1] === true && keyListDown[2] === true && keyListDown[3] === true) {
             speed = 0;
             angle = 0;
-        } else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == true) {
+        } else if (keyListDown[0] === false && keyListDown[1] === true && keyListDown[2] === false && keyListDown[3] === true) {
             angle = 0;
             speed = 0;
-        } else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == false) {
+        } else if (keyListDown[0] === true && keyListDown[1] === false && keyListDown[2] === true && keyListDown[3] === false) {
             angle = 0;
             speed = 0;
-        } else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == true) {
+        } else if (keyListDown[0] === false && keyListDown[1] === true && keyListDown[2] === true && keyListDown[3] === true) {
             angle = 270;
-        } else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == true) {
+        } else if (keyListDown[0] === true && keyListDown[1] === true && keyListDown[2] === false && keyListDown[3] === true) {
             angle = 90;
-        } else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == true) {
+        } else if (keyListDown[0] === true && keyListDown[1] === false && keyListDown[2] === true && keyListDown[3] === true) {
             angle = 0;
-        } else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == false) {
+        } else if (keyListDown[0] === true && keyListDown[1] === true && keyListDown[2] === true && keyListDown[3] === false) {
             angle = 180;
-        } else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == false) {
+        } else if (keyListDown[0] === false && keyListDown[1] === false && keyListDown[2] === true && keyListDown[3] === false) {
             angle = 270;
-        } else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == false) {
+        } else if (keyListDown[0] === true && keyListDown[1] === false && keyListDown[2] === false && keyListDown[3] === false) {
             angle = 90;
-        } else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == true) {
+        } else if (keyListDown[0] === false && keyListDown[1] === false && keyListDown[2] === false && keyListDown[3] === true) {
             angle = 0;
-        } else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == false) {
+        } else if (keyListDown[0] === false && keyListDown[1] === true && keyListDown[2] === false && keyListDown[3] === false) {
             angle = 180;
-        } else if (keyListDown[0] == true && keyListDown[1] == true && keyListDown[2] == false && keyListDown[3] == false) {
+        } else if (keyListDown[0] === true && keyListDown[1] === true && keyListDown[2] === false && keyListDown[3] === false) {
             angle = 135;
-        } else if (keyListDown[0] == false && keyListDown[1] == true && keyListDown[2] == true && keyListDown[3] == false) {
+        } else if (keyListDown[0] === false && keyListDown[1] === true && keyListDown[2] === true && keyListDown[3] === false) {
             angle = 225;
-        } else if (keyListDown[0] == false && keyListDown[1] == false && keyListDown[2] == true && keyListDown[3] == true) {
+        } else if (keyListDown[0] === false && keyListDown[1] === false && keyListDown[2] === true && keyListDown[3] === true) {
             angle = 305;
-        } else if (keyListDown[0] == true && keyListDown[1] == false && keyListDown[2] == false && keyListDown[3] == true) {
+        } else if (keyListDown[0] === true && keyListDown[1] === false && keyListDown[2] === false && keyListDown[3] === true) {
             angle = 45;
         }
         angle *= -1
