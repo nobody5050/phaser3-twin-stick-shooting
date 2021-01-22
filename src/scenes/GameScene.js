@@ -28,8 +28,8 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
         this.y = shooter.y + (50 * Math.sin(this.rotation))
 
 
-        this.setVelocityX(BULLET_SPEED * Math.cos(Math.PI * this.angle / 180))
-        this.setVelocityY(BULLET_SPEED * Math.sin(Math.PI * this.angle / 180))
+        this.setVelocityX(BULLET_SPEED * Math.cos(Math.PI * this.angle / 180) * 100)
+        this.setVelocityY(BULLET_SPEED * Math.sin(Math.PI * this.angle / 180) * 100)
 
         this.born = 0
     }
@@ -189,6 +189,7 @@ class GameScene extends Phaser.Scene {
         if (shouldMove) {
             let movement = sendMoveRequests(this.player, "keyboard")
 
+            this.player.setVelocityX(movement.x)
             this.player.setVelocityY(movement.y)
         }
 
