@@ -310,7 +310,7 @@ function sendMoveRequests(className, type, speed = 1, angle = 0,) { //includes a
         }
         angle *= -1
 
-    } else if (type == "joystick") {
+    } else if (type === "joystick") {
 //nothing i think needs to happen
     }
     // console.log("This: " + className)
@@ -318,8 +318,8 @@ function sendMoveRequests(className, type, speed = 1, angle = 0,) { //includes a
     // console.log(angle + "angle")
     let x = speed * Math.cos(Math.PI * angle / 180)
     let y = speed * Math.sin(Math.PI * angle / 180)
-    console.log("x" + x)
-    console.log("y" + y)
+    // console.log("x" + x)
+    // console.log("y" + y)
     return {'x': x, 'y': y};
 
     // room.send("move", {speed: speed, angle: angle})
