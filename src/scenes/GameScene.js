@@ -9,7 +9,7 @@ import {Dev, Hi_Power, Stechkin_APS} from '../components/guns/GunsHandler.js';
 var keysDown = 0
 var keyListDown = [false, false, false, false]
 var currentGun = Dev
-var BULLET_SPEED = currentGun.speed * 50; //this is incredibly hacky, but it just might work haha
+var BULLET_SPEED = currentGun.speed * 20; //this is incredibly hacky, but it just might work haha
 var MAX_PLAYER_SPEED = 1; //even more hacky
 // var tempLocation = {'x': NaN, 'y': NaN}
 
@@ -189,8 +189,8 @@ class GameScene extends Phaser.Scene {
         if (shouldMove) {
             let movement = sendMoveRequests(this.player, "keyboard")
 
-            this.player.setVelocityX(movement.x)
-            this.player.setVelocityY(movement.y)
+            this.player.body.setVelocityX(movement.x)
+            this.player.body.setVelocityY(movement.y)
         }
 
 
