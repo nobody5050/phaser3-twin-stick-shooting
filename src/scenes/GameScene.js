@@ -8,7 +8,7 @@ import {Dev, Hi_Power, Stechkin_APS} from '../components/guns/GunsHandler.js';
 
 var keysDown = 0
 var keyListDown = [false, false, false, false]
-var currentGun = "Dev"
+var currentGun = Dev
 var BULLET_SPEED = currentGun.speed; //this is incredibly hacky, but it just might work haha
 var MAX_PLAYER_SPEED = 1; //even more hacky
 // var tempLocation = {'x': NaN, 'y': NaN}
