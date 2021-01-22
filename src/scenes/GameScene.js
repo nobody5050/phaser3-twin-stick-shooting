@@ -9,7 +9,7 @@ import {Dev, Hi_Power, Stechkin_APS} from '../components/guns/GunsHandler.js';
 var keysDown = 0
 var keyListDown = [false, false, false, false]
 var currentGun = Dev
-var BULLET_SPEED = currentGun.speed; //this is incredibly hacky, but it just might work haha
+var BULLET_SPEED = currentGun.speed * 100; //this is incredibly hacky, but it just might work haha
 var MAX_PLAYER_SPEED = 1; //even more hacky
 // var tempLocation = {'x': NaN, 'y': NaN}
 
@@ -28,8 +28,8 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
         this.y = shooter.y + (50 * Math.sin(this.rotation))
 
 
-        this.setVelocityX(BULLET_SPEED * Math.cos(Math.PI * this.angle / 180) * 100)
-        this.setVelocityY(BULLET_SPEED * Math.sin(Math.PI * this.angle / 180) * 100)
+        this.setVelocityX(BULLET_SPEED * Math.cos(Math.PI * this.angle / 180))
+        this.setVelocityY(BULLET_SPEED * Math.sin(Math.PI * this.angle / 180))
 
         this.born = 0
     }
