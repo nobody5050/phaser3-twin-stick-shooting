@@ -189,8 +189,8 @@ class GameScene extends Phaser.Scene {
         if (shouldMove) {
             let movement = sendMoveRequests(this.player, "keyboard")
 
-            this.player.body.setVelocityX(movement.x)
-            this.player.body.setVelocityY(movement.y)
+            this.player.setVelocityX(movement.x)
+            this.player.setVelocityY(movement.y)
         }
 
 
@@ -244,13 +244,9 @@ class GameScene extends Phaser.Scene {
         } else {
             // Stop moving
 
-            let movement = sendMoveRequests(this.player, "keyboard")
-
-            if (movement.x === 0 && movement.y === 0) {
-                this.player.setVelocityX(movement.x)
-                this.player.setVelocityY(movement.y)
-            } else {
-//maybe this was the problem?
+            if (keysDown == 0) {
+                this.player.setVelocityX(0)
+                this.player.setVelocityY(0)
             }
         }
 
