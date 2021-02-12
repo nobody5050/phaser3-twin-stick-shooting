@@ -1755,9 +1755,9 @@ colorette@^1.2.1:
   integrity sha512-puCDz0CzydiSYOrnXpz/PKd69zRrribezjtE9yd4zvytoRc8+RY/KJPvtPFKZS3E3wP6neGyMe0vOTlHO5L3Pw==
 
 colyseus.js@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/colyseus.js/-/colyseus.js-0.14.0.tgz#c74e978f073be60b94639b398919991e68a57aac"
-  integrity sha512-beBsTF1iHTwJIXD3SumaTIqhwPMpRr9MA5/qw/uQxAlXi3Fucopn4gJEuTIVHBONTErvVjslRJ0+aY0yQbuVnA==
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/colyseus.js/-/colyseus.js-0.14.1.tgz#47523c799f35abca7aaf5b92c36bfeaacabbbc00"
+  integrity sha512-AFdqXmnI7dH235+VCOk3GU+SRBe6moQ6GLuEnaGbA6uLnKbpMhO9UZ6FaORUTlKcjoLXYY0ejev/OAHQXarKzw==
   dependencies:
     "@colyseus/http" "^2.0.0"
     "@colyseus/schema" "^1.0.0"
