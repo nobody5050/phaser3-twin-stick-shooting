@@ -16,7 +16,7 @@
     "phaser": "3.52.0"
   },
   "scripts": {
-    "dev": "webpack --mode development && webpack serve --mode development",
+    "dev": "webpack --mode development",
     "build": "webpack --mode development && webpack serve --mode development"
   },
   "repository": {
