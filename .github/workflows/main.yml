@@ -14,7 +14,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          yarn webpack-boilerplate
+          webpack --mode development && webpack serve --mode development
           
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
