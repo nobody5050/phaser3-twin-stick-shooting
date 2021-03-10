@@ -14,9 +14,9 @@ module.exports = {
         loader: 'ts-loader'
       },
       {
-        test: require.resolve('phaser'),
+        test: require.resolve('Phaser'),
         loader: 'expose-loader',
-        options: { exposes: { globalName: 'phaser', override: true } }
+        options: { exposes: { globalName: 'Phaser', override: true } }
       }
     ]
   },
