@@ -1,76 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <script data-ad-client="ca-pub-7236802529154924" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <noscript>
-      <br>
-      <div>
-        <p>You have Javascript disabled in your browser.</p>
-        <p>Enable it to keep battling!</p>
-      </div>
-      <style>
-        body {
-          background-color: darkgreen;
-        }
-        p {
-          font-family: "Barlow";
-          font-size: large;
-          color: white;
-          text-align: center;
-        }
-        div {
-          margin: auto;
-          width: 50%;
-          border: 3px solid white;
-          padding: 10px;
-          background-color: darkgreen;
-        }
-      </style>
-    </noscript>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="full-screen" content="yes" />
-    <meta name="screen-orientation" content="landscape" />
-    <style>
-      @font-face {
-        font-family: font1;
-        src: url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
-        font-weight:400;
-        font-weight:normal;
-      }
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-    </style>
-    <script type="text/javascript">
-      window.onorientationchange = function() {
-        window.location.reload();
-      }
-    </script>
-    <script src="https://unpkg.com/colyseus.js@^0.14.0/dist/colyseus.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="author" content="digitsensitive" />
+    <title>Webpack-Boilerplate</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/styles/css/style.css"
+      media="screen"
+    />
+    <script src="dist/bundle.js"></script>
   </head>
   <body>
-    <div style="font-family:font1; position:absolute; left:-1000px; visibility:hidden;">.</div>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAwpj5aLZJZBQQdfWm4T5yVYNYPK48XGAw",
-    authDomain: "server-c301c.firebaseapp.com",
-    databaseURL: "https://server-c301c.firebaseio.com",
-    projectId: "server-c301c",
-    storageBucket: "server-c301c.appspot.com",
-    messagingSenderId: "503676184901",
-    appId: "1:503676184901:web:1fae6c0d847eaeb7bd362c"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
+    <h1>Webpack-Boilerplate</h1>
+    <div id="game"></div>
   </body>
 </html>
