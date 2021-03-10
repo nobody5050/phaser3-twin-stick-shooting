@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "webpack --mode development && webpack serve --mode development",
-    "build": "webpack"
+    "build": "webpack --mode development && webpack serve --mode development"
   },
   "repository": {
     "type": "git",
