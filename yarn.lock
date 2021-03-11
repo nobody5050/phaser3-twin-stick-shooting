@@ -947,30 +947,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@colyseus/http@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@colyseus/http/-/http-2.0.0.tgz#620209a3dd06f9c455de12128d22ebdffda05592"
-  integrity sha512-GLg13402o160vBcjcO5uupVzf8FLAFtMQKvi7QdfxG2OvPFHx+s6wws5CAWOvcyqA97aR4Xzqxngp8AEX7ndNA==
-
-"@colyseus/schema@^1.0.0":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@colyseus/schema/-/schema-1.0.2.tgz#8a45e503112ea1746f57f0fec36a0559e270fd2a"
-  integrity sha512-icFMtf7Znp/AVToxljDbJj1/ah+4wJx3Nvq2zKszPT3LDQswC7B6IxrYOhbgoxWZjsxHhTA4ZwB46YUgwc2XSQ==
-
-"@gamestdio/signals@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@gamestdio/signals/-/signals-1.0.0.tgz#3f7501a322b9b7c5d7f105f81d0f638d4e0357a4"
-  integrity sha512-EPWA3IkJ+xDT1K/xV53m5N4h/g4qzpf4NG6GustZLT1wp3T59YPonGQ9LLl3+YMNwSNj0yawX4wUpOnuQJ96Ug==
-
-"@gamestdio/state-listener@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@gamestdio/state-listener/-/state-listener-3.1.0.tgz#d39fc5f107e58b536ac6e8477ed141ed7421788a"
-  integrity sha512-FEKarKXEeXvCrzilFw9ANOxKkdtFfHXYqJNCaYEhTV+13x02o7HXDFetJAoQCAT9AVgiHUd3Ylo5mOukAegPoA==
-
-"@gamestdio/websocket@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@gamestdio/websocket/-/websocket-0.3.2.tgz#321ba0976ee30fd14e51dbf8faa85ce7b325f76a"
-  integrity sha512-J3n5SKim+ZoLbe44hRGI/VYAwSMCeIJuBy+FfP6EZaujEpNchPRFcIsVQLWAwpU1bP2Ji63rC+rEUOd1vjUB6Q==
+"@colyseus/schema@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@colyseus/schema/-/schema-1.0.15.tgz#a5cc833c5bc86b21ad8a7f84439bab41c5c0e785"
+  integrity sha512-UBATVv2lXUC2kAuQ5Q91tSbI/vXy/Ucn3jSvIDvd5Ai/n4mYEpO3QwMBLTDaj2Fzp77Xjb7exkTwH+7Lv72MBg==
 
 "@types/anymatch@*":
   version "1.3.1"
@@ -1854,19 +1834,14 @@ colorette@^1.2.1:
   integrity sha512-puCDz0CzydiSYOrnXpz/PKd69zRrribezjtE9yd4zvytoRc8+RY/KJPvtPFKZS3E3wP6neGyMe0vOTlHO5L3Pw==
 
 colyseus.js@^0.14.0:
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/colyseus.js/-/colyseus.js-0.14.1.tgz#47523c799f35abca7aaf5b92c36bfeaacabbbc00"
-  integrity sha512-AFdqXmnI7dH235+VCOk3GU+SRBe6moQ6GLuEnaGbA6uLnKbpMhO9UZ6FaORUTlKcjoLXYY0ejev/OAHQXarKzw==
+  version "0.14.4"
+  resolved "https://registry.yarnpkg.com/colyseus.js/-/colyseus.js-0.14.4.tgz#6e00e2d258bc98ed4a65410420588a6c17114194"
+  integrity sha512-AuBj4HkRcqlZF2H+Ujy8HuYI4anYYgpX8r71IhGPCV6rYO4m6y6Cqym6nTwpiqkCsUiB8V2yD3eiokePokL4ug==
   dependencies:
-    "@colyseus/http" "^2.0.0"
-    "@colyseus/schema" "^1.0.0"
-    "@gamestdio/signals" "^1.0.0"
-    "@gamestdio/state-listener" "^3.1.0"
-    "@gamestdio/websocket" "^0.3.2"
-    fossil-delta "^1.0.0"
-    nanoevents "^5.1.5"
+    "@colyseus/schema" "^1.0.15"
+    httpie "^2.0.0-next.13"
+    nanoevents "^5.1.12"
     notepack.io "^2.1.3"
-    strong-events "^1.0.5"
 
 commander@^2.20.0:
   version "2.20.3"
@@ -2692,11 +2667,6 @@ forwarded@~0.1.2:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
-fossil-delta@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/fossil-delta/-/fossil-delta-1.0.2.tgz#a3e9545d5fd5e1b317dca38f0c852baa80b13b89"
-  integrity sha512-fkgQUnBaJjhDq0DN1ajBlWWRH99NQgwVoReMEr0oXLqYXAx8X9mD5gGaoTYDdVVbLJYsMNrnkJ028Ld0UgWrGA==
-
 fragment-cache@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/fragment-cache/-/fragment-cache-0.2.1.tgz#4290fad27f13e89be7f33799c6bc5a0abfff0d19"
@@ -3066,6 +3036,11 @@ http-proxy@^1.17.0:
     eventemitter3 "^4.0.0"
     follow-redirects "^1.0.0"
     requires-port "^1.0.0"
+
+httpie@^2.0.0-next.13:
+  version "2.0.0-next.13"
+  resolved "https://registry.yarnpkg.com/httpie/-/httpie-2.0.0-next.13.tgz#1e245be61d6ca2573a2c1d690cfa5ec3bac63a0c"
+  integrity sha512-KbKOnq8wt0hVEfteYCSnEsPgzaWxcVc4qZ4OaDU9mVOYLRo3XChjWs3MiuRgFu5y+4JDo7sDKdKzkAn1ljQYFA==
 
 https-browserify@^1.0.0:
   version "1.0.0"
@@ -3835,10 +3810,10 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
   integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
 
-nanoevents@^5.1.5:
-  version "5.1.10"
-  resolved "https://registry.yarnpkg.com/nanoevents/-/nanoevents-5.1.10.tgz#9165199eed228c4787086dd1ea579b64257b8f8e"
-  integrity sha512-QOE78g63vQ7V1JzhOLP8UNlaLOF/llDtfUhCj9GlbhQQc0YdPi5GNJKZdeWE0fvDtGF39un6uSf7RObeBm0eAg==
+nanoevents@^5.1.12:
+  version "5.1.12"
+  resolved "https://registry.yarnpkg.com/nanoevents/-/nanoevents-5.1.12.tgz#fc1e0dd66e0d81186674265f3c78bbfd41161172"
+  integrity sha512-Tzfk8ooKL/aLuF5uWqgBa+u+TjdHQwfFyWKTpaYHHBfGOTxc68K4prj77TBAW5MN2RCMVwk9XK1K0RRgHO6T4Q==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -5082,11 +5057,6 @@ strip-eof@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/strip-eof/-/strip-eof-1.0.0.tgz#bb43ff5598a6eb05d89b59fcd129c983313606bf"
   integrity sha1-u0P/VZim6wXYm1n80SnJgzE2Br8=
-
-strong-events@^1.0.5:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/strong-events/-/strong-events-1.0.7.tgz#b12da3ec5cd79cf50851707c3d66912428198067"
-  integrity sha512-zKYPfTtLaZiwDoDiGkNQdurbGhzVS7oE23AmHOnA6rUp4E7FeF7Z6xbHQEqSRqNyaTN+X3rcppfobypf0k3Ltg==
 
 supports-color@6.1.0, supports-color@^6.1.0:
   version "6.1.0"
