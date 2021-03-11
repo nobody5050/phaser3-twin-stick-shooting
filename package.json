@@ -27,7 +27,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.2",
     "raw-loader": "^4.0.0",
-    "terser-webpack-plugin": "^2.3.3",
+    "terser-webpack-plugin": "^4.2.3",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1",
